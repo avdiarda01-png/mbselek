@@ -1,4 +1,4 @@
-/* Kurumsal & Resmi Tema - Ege Üniversitesi */
+/* Ege Üniversitesi Kurumsal Tema (Mavi/Beyaz) */
 * {
     margin: 0;
     padding: 0;
@@ -7,25 +7,25 @@
 }
 
 body {
-    background-color: #f8f9fa; /* Çok açık gri/beyaz resmi arka plan */
-    color: #333; /* Okunabilir koyu gri metin */
+    background-color: #f4f7f6; /* Resmi arka plan */
+    color: #333;
     line-height: 1.6;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
-/* 1. Navbar (Üst Menü) Tasarımı */
+/* 1. Navbar Tasarımı */
 .main-navbar {
-    background-color: #003366; /* Ege Üniversitesi Laciverti */
-    padding: 15px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #003366; /* Ege Laciverti */
+    padding: 10px 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .navbar-content {
@@ -37,44 +37,27 @@ body {
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .site-logo {
-    height: 55px; /* Logo boyutu */
+    height: 50px;
     width: auto;
-    background-color: white; /* Logo belirgin olsun diye arkasına beyaz daire eklenebilir ama png ise direkt güzel durur */
-    border-radius: 50%;
-    padding: 2px;
 }
 
-.titles h1 {
-    font-size: 19px;
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
+.titles h1 { font-size: 17px; color: white; font-weight: 700; }
+.titles h2 { font-size: 13px; color: #aed6f1; font-weight: 400; }
 
-.titles h2 {
-    font-size: 14px;
-    color: #e0e0e0;
-    font-weight: 400;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
+.nav-links { display: flex; gap: 15px; align-items: center; }
 
 .nav-item {
     text-decoration: none;
-    color: #ffffff;
-    font-size: 15px;
+    color: white;
+    font-size: 14px;
     font-weight: 600;
-    transition: all 0.3s;
-    padding: 8px 12px;
+    padding: 8px 15px;
     border-radius: 4px;
+    transition: background 0.3s;
 }
 
 .nav-item:hover, .nav-item.active {
@@ -83,141 +66,172 @@ body {
 
 .nav-icon {
     text-decoration: none;
-    color: #ffffff;
-    font-size: 22px;
-    transition: all 0.3s;
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
 }
+.nav-icon:hover { color: #e1306c; }
 
-.nav-icon:hover {
-    color: #e1306c; /* Instagram'ın orijinal rengine hover */
-    transform: scale(1.1);
-}
-
-/* 2. Banner/Afiş Alanı */
-.banner-area {
-    background-color: #ffffff;
-    padding: 50px 0;
+/* 2. Slider (Slayt Gösterisi) Tasarımı */
+.slider-section {
+    background-color: white;
+    padding-bottom: 20px;
     border-bottom: 1px solid #dee2e6;
 }
 
-.banner-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
+.slider-container {
+    max-width: 1000px;
+    position: relative;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.main-poster {
-    max-width: 320px;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    border: 1px solid #eee;
+.mySlides { display: none; }
+
+/* Sağ-Sol Oklar */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
 }
 
-.banner-text h3 {
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+
+/* Yuvarlak Noktalar (Dots) */
+.dot {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover { background-color: #003366; }
+
+/* Fade Efekti */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* 3. Projeler Bölümü (Alt Alta Liste) */
+.projects-list-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
     color: #003366;
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 40px;
     font-weight: 700;
 }
 
-.banner-text h4 {
-    color: #444;
-    font-size: 28px;
-    margin: 15px 0;
-    font-weight: 600;
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Listeler arası boşluk */
 }
 
-.banner-text p {
-    color: #666;
-    font-size: 17px;
-}
-
-/* 3. Proje Grid Düzeni (Kartlar) */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin: 60px 0;
-}
-
-.project-card {
-    text-decoration: none;
-    background-color: #ffffff;
+.project-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px 30px;
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: #333;
     border: 1px solid #e9ecef;
+    border-left: 5px solid transparent; /* Başlangıçta şeffaf sol çizgi */
     transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.project-list-item:hover {
+    transform: translateX(5px); /* Sağa hafif kayma efekti */
+    border-left-color: #003366; /* Hoverda beliren mavi çizgi */
+    border-color: #aed6f1;
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
+}
+
+.project-info {
     display: flex;
     flex-direction: column;
+    gap: 3px;
+    min-width: 250px;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: #003366;
-    box-shadow: 0 10px 20px rgba(0, 51, 102, 0.1);
-}
-
-.card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid #eee;
-}
-
-.card-content {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-student {
+.student-no {
     color: #777;
     font-size: 13px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
 }
 
-.card-title {
+.student-name {
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.project-title {
+    flex-grow: 1;
     color: #003366;
     font-size: 17px;
-    font-weight: 700;
-    line-height: 1.4;
+    font-weight: 600;
+    text-align: left;
+    padding: 0 30px;
+}
+
+.list-arrow {
+    color: #aaa;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.project-list-item:hover .list-arrow {
+    color: #003366;
 }
 
 /* 4. Footer */
 footer {
     text-align: center;
-    padding: 30px 0;
+    padding: 30px;
     background-color: #003366;
-    color: #ffffff;
-    margin-top: 50px;
-}
-
-footer p {
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-footer a {
-    color: #aed6f1;
-    text-decoration: none;
-}
-footer a:hover {
-    text-decoration: underline;
+    color: white;
+    margin-top: 20px;
 }
 
 /* Mobil Uyumluluk */
-@media (max-width: 992px) {
-    .project-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 768px) {
-    .navbar-content { flex-direction: column; gap: 15px; }
-    .banner-content { flex-direction: column; text-align: center; }
-    .main-poster { max-width: 90%; }
-    .project-grid { grid-template-columns: 1fr; }
+    .navbar-content { flex-direction: column; gap: 10px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .project-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+    .project-title { padding: 0; font-size: 15px; }
+    .list-arrow { display: none; } /* Mobilde oku gizle */
 }
