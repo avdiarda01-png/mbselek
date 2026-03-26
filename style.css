@@ -1,4 +1,4 @@
-/* Ege Üniversitesi Kurumsal Tema (Mavi/Beyaz) - Tam ve Eksiksiz Versiyon */
+/* EGE ÜNİVERSİTESİ RESMİ KURUMSAL TASARIM (GÜNCELLENDİ) */
 * {
     margin: 0;
     padding: 0;
@@ -7,371 +7,103 @@
 }
 
 body {
-    background-color: #f4f7f6; /* Resmi arka plan */
+    background-color: #e9ecef; /* O bahsettiğin krem/kirli beyaz arka plan! Beyaz kutuları öne çıkarır. */
     color: #333;
     line-height: 1.6;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px; /* Biraz daha genişlettik */
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* 1. Navbar Tasarımı - Modern ve Ferah */
-.main-navbar {
-    background-color: #ffffff; /* Üst kısım beyaz */
-    padding: 10px 0;
+/* --- YENİ HEADER TASARIMI --- */
+.ege-official-header {
+    background-color: #ffffff;
+    border-bottom: 4px solid #28528f; /* Ege mavisi kalın çizgi */
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-bottom: 3px solid #003366; /* Ege Laciverti vurgu çizgisi */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.navbar-content {
+/* Header Üst Kısım (Logolar) */
+.header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 0;
 }
 
-.logo-area {
+.logo-and-title {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
 }
 
-.site-logo {
-    height: 50px;
+.uni-logo {
+    height: 80px; /* Logoyu daha büyük ve okunaklı yaptık */
     width: auto;
 }
 
 .titles h1 {
-    font-size: 17px;
-    color: #003366;
+    font-size: 24px;
+    color: #28528f; /* Kurumsal lacivert */
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .titles h2 {
-    font-size: 13px;
-    color: #555555;
+    font-size: 16px;
+    color: #555;
     font-weight: 400;
+    margin-top: 2px;
+}
+
+.myo-logo {
+    height: 70px; /* Sağdaki logo */
+    width: auto;
+}
+
+/* Header Alt Kısım (Lacivert Menü Şeridi) */
+.main-navbar {
+    background-color: #28528f; /* Orijinal Ege mavisi şerit */
+    width: 100%;
 }
 
 .nav-links {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    gap: 5px;
 }
 
 .nav-item {
     text-decoration: none;
-    color: #003366;
-    font-size: 14px;
+    color: #ffffff;
+    font-size: 13px;
     font-weight: 600;
-    padding: 8px 15px;
-    border-radius: 4px;
-    transition: all 0.3s;
+    padding: 12px 20px;
+    transition: background 0.3s;
+    letter-spacing: 0.5px;
 }
 
 .nav-item:hover, .nav-item.active {
-    background-color: #003366;
-    color: #ffffff;
+    background-color: #1a3a6c; /* Hover rengi daha koyu lacivert */
 }
 
-.nav-icon {
-    text-decoration: none;
-    color: #003366;
-    font-size: 20px;
-    margin-left: 10px;
-}
-.nav-icon:hover { color: #e1306c; }
-
-/* 2. Slider (Slayt Gösterisi) Tasarımı (Contain modlu) */
-.slider-section {
-    background-color: white;
-    padding: 30px 0 10px 0;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.slider-container {
-    max-width: 1000px;
-    position: relative;
-    margin: 0 auto;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border: 1px solid #eee;
-    background-color: #ffffff;
-}
-
-.mySlides {
-    display: none;
-    height: 400px;
-    position: relative;
-    text-align: center;
-}
-
-.mySlides img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Asla kırpmaz, tamamını gösterir */
-    object-position: center;
-}
-
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: #003366;
-    font-weight: bold;
-    font-size: 24px;
-    transition: 0.6s ease;
-    border-radius: 3px;
-    user-select: none;
-    background-color: rgba(255,255,255,0.7);
-}
-.next { right: 0; }
-.prev { left: 0; }
-.prev:hover, .next:hover { background-color: rgba(255,255,255,1); color: #e67e22; }
-
-.dot {
-    cursor: pointer;
-    height: 12px;
-    width: 12px;
-    margin: 0 4px;
-    background-color: #ddd;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-.active, .dot:hover { background-color: #003366; }
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
-
-/* 3. Projeler Bölümü (Alt Alta Liste) */
-.projects-list-section {
-    padding: 60px 0;
-}
-
-.section-title {
-    text-align: center;
-    color: #003366;
-    font-size: 28px;
-    margin-bottom: 40px;
-    font-weight: 700;
-}
-
-.projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.project-list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #333;
-    border: 1px solid #e9ecef;
-    border-left: 5px solid transparent;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-}
-
-.project-list-item:hover {
-    transform: translateX(5px);
-    border-left-color: #003366;
-    border-color: #aed6f1;
-    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
-}
-
-.project-info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    min-width: 250px;
-}
-
-.student-no { color: #777; font-size: 13px; font-weight: 600; }
-.student-name { color: #333; font-size: 16px; font-weight: 700; }
-.project-title { flex-grow: 1; color: #003366; font-size: 17px; font-weight: 600; text-align: left; padding: 0 30px; }
-.list-arrow { color: #aaa; font-size: 18px; transition: color 0.3s; }
-.project-list-item:hover .list-arrow { color: #003366; }
-
-/* 4. PROJE DETAY, HAKKIMIZDA VE İLETİŞİM SAYFALARI TASARIMI */
-.detail-container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #ffffff;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border-top: 6px solid #003366; 
-}
-
-.detail-header {
-    text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 25px;
-}
-
-.detail-title {
-    color: #003366;
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 10px;
-    line-height: 1.3;
-}
-
-.detail-student {
-    color: #666;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.detail-summary-box {
-    background-color: #f8f9fa;
-    padding: 25px;
-    border-radius: 6px;
-    border-left: 4px solid #003366;
-    margin-bottom: 35px;
-}
-
-.detail-summary-title {
-    color: #003366;
-    font-size: 20px;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.detail-summary-text {
-    color: #444;
+/* Ev İkonu İçin Özel Ayar */
+.nav-item i.fa-home {
     font-size: 16px;
-    line-height: 1.8;
-    text-align: justify;
 }
 
-.detail-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.action-btn {
-    padding: 15px 30px;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-presentation { background-color: #003366; }
-.btn-presentation:hover { background-color: #002244; transform: translateY(-3px); }
-
-.btn-poster { background-color: #e67e22; }
-.btn-poster:hover { background-color: #d35400; transform: translateY(-3px); }
-
-.poster-display {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.poster-display h3 {
-    color: #003366;
-    margin-bottom: 20px;
-    font-size: 22px;
-}
-
-.poster-display img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    border: 1px solid #ddd;
-}
-
-/* 5. Footer */
-footer {
-    text-align: center;
-    padding: 30px;
-    background-color: #003366;
-    color: white;
-    margin-top: 20px;
-}
-
-/* MOBİL UYUMLULUK */
+/* MOBİL UYUMLULUK GÜNCELLEMESİ */
 @media (max-width: 768px) {
-    .main-navbar { background-color: #f8f9fa; padding: 10px 0; }
-    .navbar-content { flex-direction: column; gap: 10px; align-items: center; }
-    .logo-area { flex-direction: column; gap: 5px; }
-    .site-logo { height: 40px; }
-    .titles { text-align: center; }
-    .titles h1 { font-size: 15px; }
-    .titles h2 { font-size: 11px; }
-    
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-        width: 100%;
-        padding-top: 5px;
-        border-top: 1px solid #ddd;
-    }
-    
-    .nav-item {
-        font-size: 13px;
-        padding: 5px 10px;
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        color: #003366;
-    }
-    
-    .nav-item.active {
-        background-color: #003366;
-        color: #ffffff;
-        border-color: #003366;
-    }
-    
-    .nav-icon { display: none; }
-    .mySlides { height: 250px; }
-    .projects-list-section { padding: 40px 0; }
-    .section-title { font-size: 22px; margin-bottom: 25px; }
-    
-    .project-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 15px;
-    }
-    
-    .project-info { min-width: unset; width: 100%; }
-    .project-title { padding: 0; font-size: 15px; }
-    .list-arrow { display: none; }
-
-    /* Detay Sayfası Mobil Uyumluluk */
-    .detail-container { padding: 20px; margin: 20px; }
-    .detail-buttons { flex-direction: column; }
-    .action-btn { justify-content: center; }
+    .header-top { flex-direction: column; text-align: center; gap: 15px; }
+    .logo-and-title { flex-direction: column; gap: 10px; }
+    .uni-logo { height: 60px; }
+    .myo-logo { display: none; } /* Mobilde sağ logoyu gizle, kalabalık yapmasın */
+    .titles h1 { font-size: 20px; }
+    .titles h2 { font-size: 14px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+    .nav-item { padding: 10px 15px; font-size: 12px; }
 }
