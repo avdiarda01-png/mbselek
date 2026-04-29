@@ -6,6 +6,59 @@
     <title>Sponsorlar | Ege MYO Proje Portalı</title>
     <link rel="stylesheet" href="style.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Onur Konukları Özel Vurgu Tasarımı */
+        .honor-section {
+            background: #fff;
+            border: 2px solid #d4af37; /* Altın Rengi Çerçeve */
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            margin-bottom: 50px;
+            overflow: hidden;
+        }
+        .honor-section::before {
+            content: 'ONUR KONUKLARIMIZ';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #d4af37;
+            color: #fff;
+            padding: 5px 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 0 0 0 15px;
+            letter-spacing: 1px;
+        }
+        .honor-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .honor-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .honor-item:last-child { border-bottom: none; }
+        .honor-item i {
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin-right: 20px;
+        }
+        .honor-name {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        .honor-company {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body style="background-color: #f4f7f6;">
 
@@ -37,61 +90,79 @@
 
     <main class="container" style="padding: 50px 0; max-width: 1000px; margin: 0 auto;">
         
-        <section style="background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px;">
-            
-            <h1 style="color: #28528f; text-align: center; margin-bottom: 40px; font-size: 32px;">Destekçilerimiz & Sponsorlarımız</h1>
+        <h1 style="color: #28528f; text-align: center; margin-bottom: 50px; font-size: 36px; font-weight: 800;">Destekçilerimiz & Sponsorlarımız</h1>
 
-            <div style="margin-bottom: 50px; text-align: left;">
-                <h2 style="color: #e67e22; border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-bottom: 20px;"><i class="fas fa-star"></i> Onur Konuklarımız</h2>
-                <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 2.2; color: #333;">
-                    <li><i class="fas fa-check-circle" style="color: #e67e22;"></i> <strong>Gülay Bozdağ</strong></li>
-                    <li><i class="fas fa-check-circle" style="color: #e67e22;"></i> <strong>Serhat Evcim</strong> - Roltek Teknoloji A.Ş.</li>
-                    <li><i class="fas fa-check-circle" style="color: #e67e22;"></i> <strong>Hüsnü Bilal Becerikli</strong> - Öztaş Global Soğutma</li>
-                </ul>
+        <section class="honor-section">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-crown" style="color: #d4af37; font-size: 2.5rem; margin-bottom: 15px;"></i>
+                <h2 style="color: #2c3e50; margin: 0; font-size: 1.8rem; letter-spacing: 1px;">Kıymetli Onur Konuklarımız</h2>
+                <p style="color: #95a5a6; margin-top: 5px;">Etkinliğimize en yüksek katkıyı sağlayan değerli destekçilerimiz</p>
             </div>
+            <ul class="honor-list">
+                <li class="honor-item">
+                    <i class="fas fa-medal"></i>
+                    <div>
+                        <span class="honor-name">Gülay Bozdağ</span>
+                    </div>
+                </li>
+                <li class="honor-item">
+                    <i class="fas fa-medal"></i>
+                    <div>
+                        <span class="honor-name">Serhat Evcim</span>
+                        <span class="honor-company">- Roltek Teknoloji A.Ş.</span>
+                    </div>
+                </li>
+                <li class="honor-item">
+                    <i class="fas fa-medal"></i>
+                    <div>
+                        <span class="honor-name">Hüsnü Bilal Becerikli</span>
+                        <span class="honor-company">- Öztaş Global Soğutma</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
 
-            <div style="text-align: left;">
-                <h2 style="color: #28528f; border-bottom: 2px solid #28528f; padding-bottom: 10px; margin-bottom: 25px;"><i class="fas fa-hands-helping"></i> Teşekkürlerimizle</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; font-size: 0.95rem; color: #555; line-height: 1.6;">
-                    <div>• <strong>Serdar Bayar</strong> - Nortchem Kimya</div>
-                    <div>• <strong>Murat Sağlam</strong> - Kontek Enerji</div>
-                    <div>• <strong>Hüseyin Eryılmaz</strong> - Nilse Mühendislik</div>
-                    <div>• <strong>Mutlu Teksin</strong></div>
-                    <div>• <strong>Fikret Uzgan</strong></div>
-                    <div>• <strong>Ahmet Ak</strong> - Trex Dijital Akıllı Üretim Sistemleri A.Ş.</div>
-                    <div>• <strong>Ahmet Hartoka</strong></div>
-                    <div>• <strong>Doğukan Gülçimen</strong> - Musa Aspava</div>
-                    <div>• <strong>Ercan Gülçimen</strong> - Musa Aspava</div>
-                    <div>• <strong>Haluk Demir</strong> - Dr.Tamirci</div>
-                    <div>• <strong>Hüsnü Bilal Becerikli</strong> - Öztaş Global Soğutma</div>
-                    <div>• <strong>Ümit Güler</strong> - Öztaş Global Soğutma</div>
-                </div>
+        <section style="background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px;">
+            <h2 style="color: #28528f; border-bottom: 2px solid #28528f; padding-bottom: 10px; margin-bottom: 30px;"><i class="fas fa-hands-helping"></i> Teşekkürlerimizle</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; font-size: 1rem; color: #555; line-height: 1.6;">
+                <div>• <strong>Serdar Bayar</strong> - Nortchem Kimya</div>
+                <div>• <strong>Murat Sağlam</strong> - Kontek Enerji</div>
+                <div>• <strong>Hüseyin Eryılmaz</strong> - Nilse Mühendislik</div>
+                <div>• <strong>Mutlu Teksin</strong></div>
+                <div>• <strong>Fikret Uzgan</strong></div>
+                <div>• <strong>Ahmet Ak</strong> - Trex Dijital Akıllı Üretim Sistemleri A.Ş.</div>
+                <div>• <strong>Ahmet Hartoka</strong> - Kent Kart A.Ş.</div>
+                <div>• <strong>Doğukan Gülçimen</strong> - Musa Aspava</div>
+                <div>• <strong>Ercan Gülçimen</strong> - Musa Aspava</div>
+                <div>• <strong>Haluk Demir</strong> - Dr.Tamirci</div>
+                <div>• <strong>Ümit Güler</strong> - Öztaş Global Soğutma</div>
+                <div>• <strong>Sercan Birkan</strong> - Beyaz Köşe</div>
+                <div>• <strong>KalesiTech</strong></div>
             </div>
         </section>
 
         <section style="background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 40px;">
-            <h2 style="color: #28528f; margin-bottom: 40px; font-size: 24px;">Kurumsal Sponsorlarımızın Logoları</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 40px; align-items: center; justify-items: center;">
-                <img src="resimler/northchem.png" alt="Northchem Kimya" style="max-width: 150px; height: auto;">
-                <img src="resimler/roltek.png" alt="Roltek Teknoloji" style="max-width: 150px; height: auto;">
-                <img src="resimler/nilse.png" alt="Nilse Mühendislik" style="max-width: 150px; height: auto;">
-                <img src="resimler/trex.png" alt="Trex Dijital" style="max-width: 150px; height: auto;">
-                <img src="resimler/musa_aspava.png" alt="Musa Aspava" style="max-width: 150px; height: auto;">
-                <img src="resimler/dr_tamirci.png" alt="Dr. Tamirci" style="max-width: 150px; height: auto;">
-                <img src="resimler/oztas.png" alt="Öztaş Global Soğutma" style="max-width: 150px; height: auto;">
-                <img src="resimler/kalesitech.png" alt="KalesiTech" style="max-width: 150px; height: auto;">
-                <img src="resimler/ozdisan.png" alt="Özdisan Elektronik" style="max-width: 150px; height: auto;">
+            <h2 style="color: #28528f; margin-bottom: 45px; font-size: 24px;">Kurumsal Sponsorlarımızın Logoları</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 50px; align-items: center; justify-items: center;">
+                <img src="resimler/northchem.png" alt="Northchem" style="max-width: 160px; height: auto; transition: transform 0.3s;">
+                <img src="resimler/roltek.png" alt="Roltek" style="max-width: 160px; height: auto;">
+                <img src="resimler/nilse.png" alt="Nilse" style="max-width: 160px; height: auto;">
+                <img src="resimler/trex.png" alt="Trex" style="max-width: 160px; height: auto;">
+                <img src="resimler/musa_aspava.png" alt="Musa Aspava" style="max-width: 160px; height: auto;">
+                <img src="resimler/dr_tamirci.png" alt="Dr. Tamirci" style="max-width: 160px; height: auto;">
+                <img src="resimler/oztas.png" alt="Öztaş Global" style="max-width: 160px; height: auto;">
+                <img src="resimler/kalesitech.png" alt="KalesiTech" style="max-width: 160px; height: auto;">
+                <img src="resimler/ozdisan.png" alt="Özdisan" style="max-width: 160px; height: auto;">
             </div>
         </section>
 
-        <section style="background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;">
-            <h2 style="color: #28528f; font-size: 32px; margin-bottom: 20px;">Sponsorumuz Olun</h2>
-            <p style="font-size: 18px; color: #555; max-width: 800px; margin: 0 auto 30px auto; line-height: 1.8;">
+        <section style="background: linear-gradient(135deg, #28528f 0%, #1a3a63 100%); padding: 50px; border-radius: 12px; text-align: center; color: #fff; box-shadow: 0 10px 20px rgba(40, 82, 143, 0.2);">
+            <h2 style="font-size: 32px; margin-bottom: 20px;">Sponsorumuz Olun</h2>
+            <p style="font-size: 18px; opacity: 0.9; max-width: 800px; margin: 0 auto 35px auto; line-height: 1.8;">
                 Ege Üniversitesi Meslek Yüksekokulu Elektronik Haberleşme Teknolojisi öğrencilerinin geleceğe yön veren teknoloji projelerine destek olmak ve bu vizyoner etkinlikte markanızla yer almak için sponsorluk mektubumuzu inceleyebilirsiniz.
             </p>
-            <a href="sunumlar/sponsor_mektubu.docx" class="action-btn" style="display: inline-flex; background: #28528f; color: #fff; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
-                <i class="fas fa-handshake" style="margin-right: 10px;"></i> Sponsorluk Mektubunu İndir (.docx)
+            <a href="sunumlar/sponsor_mektubu.docx" style="display: inline-flex; align-items: center; background: #fff; color: #28528f; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 1.15rem; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <i class="fas fa-handshake" style="margin-right: 12px; font-size: 1.4rem;"></i> Sponsorluk Mektubunu İndir (.docx)
             </a>
         </section>
 
