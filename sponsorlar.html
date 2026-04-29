@@ -7,29 +7,30 @@
     <link rel="stylesheet" href="style.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Onur Konukları Özel Vurgu Tasarımı */
+        /* Onur Konukları - Resmi ve Prestijli Plaket Tasarımı */
         .honor-section {
-            background: #fff;
-            border: 2px solid #d4af37; /* Altın Rengi Çerçeve */
-            border-radius: 15px;
-            padding: 40px;
+            background: linear-gradient(to right, #ffffff, #faf9f6);
+            border: 1px solid #e0d8c3;
+            border-top: 4px solid #b8860b; /* Koyu Altın/Bronz Vurgu */
+            border-bottom: 4px solid #b8860b;
+            border-radius: 8px;
+            padding: 45px 40px;
             position: relative;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
             margin-bottom: 50px;
-            overflow: hidden;
         }
         .honor-section::before {
             content: 'ONUR KONUKLARIMIZ';
             position: absolute;
             top: 0;
-            right: 0;
-            background: #d4af37;
+            right: 20px;
+            background: #b8860b;
             color: #fff;
-            padding: 5px 20px;
-            font-size: 0.8rem;
+            padding: 6px 20px;
+            font-size: 0.75rem;
             font-weight: bold;
-            border-radius: 0 0 0 15px;
-            letter-spacing: 1px;
+            border-radius: 0 0 5px 5px;
+            letter-spacing: 1.5px;
         }
         .honor-list {
             list-style: none;
@@ -39,13 +40,13 @@
         .honor-item {
             display: flex;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #f1f1f1;
+            padding: 18px 0;
+            border-bottom: 1px dashed #e0d8c3;
         }
         .honor-item:last-child { border-bottom: none; }
         .honor-item i {
-            color: #d4af37;
-            font-size: 1.5rem;
+            color: #b8860b;
+            font-size: 1.4rem;
             margin-right: 20px;
         }
         .honor-name {
@@ -57,6 +58,7 @@
             color: #7f8c8d;
             font-size: 1.1rem;
             margin-left: 10px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -93,10 +95,10 @@
         <h1 style="color: #28528f; text-align: center; margin-bottom: 50px; font-size: 36px; font-weight: 800;">Destekçilerimiz & Sponsorlarımız</h1>
 
         <section class="honor-section">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <i class="fas fa-crown" style="color: #d4af37; font-size: 2.5rem; margin-bottom: 15px;"></i>
-                <h2 style="color: #2c3e50; margin: 0; font-size: 1.8rem; letter-spacing: 1px;">Kıymetli Onur Konuklarımız</h2>
-                <p style="color: #95a5a6; margin-top: 5px;">Etkinliğimize en yüksek katkıyı sağlayan değerli destekçilerimiz</p>
+            <div style="text-align: center; margin-bottom: 35px;">
+                <i class="fas fa-award" style="color: #b8860b; font-size: 2.5rem; margin-bottom: 15px;"></i>
+                <h2 style="color: #2c3e50; margin: 0; font-size: 1.8rem; letter-spacing: 0.5px;">Kıymetli Onur Konuklarımız</h2>
+                <p style="color: #7f8c8d; margin-top: 8px; font-size: 1.05rem;">Etkinliğimize en yüksek katkıyı sağlayan değerli destekçilerimiz</p>
             </div>
             <ul class="honor-list">
                 <li class="honor-item">
@@ -125,11 +127,9 @@
         <section style="background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px;">
             <h2 style="color: #28528f; border-bottom: 2px solid #28528f; padding-bottom: 10px; margin-bottom: 30px;"><i class="fas fa-hands-helping"></i> Teşekkürlerimizle</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; font-size: 1rem; color: #555; line-height: 1.6;">
+                
                 <div>• <strong>Serdar Bayar</strong> - Nortchem Kimya</div>
-                <div>• <strong>Murat Sağlam</strong> - Kontek Enerji</div>
                 <div>• <strong>Hüseyin Eryılmaz</strong> - Nilse Mühendislik</div>
-                <div>• <strong>Mutlu Teksin</strong></div>
-                <div>• <strong>Fikret Uzgan</strong></div>
                 <div>• <strong>Ahmet Ak</strong> - Trex Dijital Akıllı Üretim Sistemleri A.Ş.</div>
                 <div>• <strong>Ahmet Hartoka</strong> - Kent Kart A.Ş.</div>
                 <div>• <strong>Doğukan Gülçimen</strong> - Musa Aspava</div>
@@ -138,13 +138,18 @@
                 <div>• <strong>Ümit Güler</strong> - Öztaş Global Soğutma</div>
                 <div>• <strong>Sercan Birkan</strong> - Beyaz Köşe</div>
                 <div>• <strong>KalesiTech</strong></div>
+                
+                <div>• <strong>Murat Sağlam</strong> - Kontek Enerji</div>
+                <div>• <strong>Mutlu Teksin</strong></div>
+                <div>• <strong>Fikret Uzgan</strong></div>
+
             </div>
         </section>
 
         <section style="background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 40px;">
             <h2 style="color: #28528f; margin-bottom: 45px; font-size: 24px;">Kurumsal Sponsorlarımızın Logoları</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 50px; align-items: center; justify-items: center;">
-                <img src="resimler/northchem.png" alt="Northchem" style="max-width: 160px; height: auto; transition: transform 0.3s;">
+                <img src="resimler/northchem.png" alt="Northchem" style="max-width: 160px; height: auto;">
                 <img src="resimler/roltek.png" alt="Roltek" style="max-width: 160px; height: auto;">
                 <img src="resimler/nilse.png" alt="Nilse" style="max-width: 160px; height: auto;">
                 <img src="resimler/trex.png" alt="Trex" style="max-width: 160px; height: auto;">
