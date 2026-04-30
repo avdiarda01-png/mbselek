@@ -53,26 +53,22 @@
             </div>
 
             <div class="detail-buttons">
-                <!-- .pptx uzantısı ve PPT ikonu güncellendi -->
                 <a href="sunumlar/nefise_kolayli_sunum.pptx" target="_blank" class="action-btn btn-presentation" style="background-color: #d35400;"><i class="fas fa-file-powerpoint"></i> Proje Sunumu (.pptx)</a>
+                <a href="#proje-videosu" class="action-btn" style="background-color: #ff0000; color: white;"><i class="fab fa-youtube"></i> Sunum Videosu</a>
                 <a href="resimler/nefise_kolayli_poster.jpg" target="_blank" class="action-btn btn-poster"><i class="fas fa-image"></i> Proje Posteri (Görüntüle)</a>
             </div>
 
-            <!-- Video ve Poster Yan Yana Tasarım -->
-            <div class="media-container" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
-                
-                <div class="video-display" style="flex: 1 1 300px; max-width: 350px; text-align: center;">
-                    <h3 style="color: #28528f; margin-bottom: 20px;"><i class="fab fa-youtube" style="color: #ff0000; margin-right: 10px;"></i>Proje Videosu</h3>
-                    <iframe width="100%" style="height: 600px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);" src="https://www.youtube.com/embed/XMHLmti9WWk" title="Nefise Kolaylı Proje Videosu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-
-                <div class="poster-display" style="flex: 1 1 300px; max-width: 500px; text-align: center;">
-                    <h3 style="color: #28528f; margin-bottom: 20px;"><i class="fas fa-image" style="color: #28528f; margin-right: 10px;"></i>Proje Posteri</h3>
-                    <img src="resimler/nefise_kolayli_poster.jpg" alt="Nefise Kolaylı Posteri" onerror="this.src='https://via.placeholder.com/1000x1400/eeeeee/28528f?text=Poster+Henuz+Yuklenmedi'" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-                </div>
-
+            <div id="proje-videosu" style="margin: 50px 0; text-align: center; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <h3 style="color: #28528f; margin-bottom: 25px; font-size: 22px;"><i class="fab fa-youtube" style="color: #ff0000; margin-right: 10px;"></i> Proje Sunum Videosu</h3>
+                <iframe width="100%" height="600" style="max-width: 350px; border-radius: 12px; border: 2px solid #ddd; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" 
+                src="https://www.youtube.com/embed/XMHLmti9WWk" 
+                title="Nefise Kolaylı Proje Videosu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
 
+            <div class="poster-display">
+                <h3>Proje Posteri</h3>
+                <img src="resimler/nefise_kolayli_poster.jpg" alt="Nefise Kolaylı Posteri" onerror="this.src='https://via.placeholder.com/1000x1400/eeeeee/28528f?text=Poster+Henuz+Yuklenmedi'">
+            </div>
         </div>
     </main>
 
