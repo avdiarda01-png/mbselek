@@ -48,26 +48,30 @@
             font-weight: 600;
         }
         
-        /* Otomatik Kayan Galeri (Öztaş İçin) - DÜZELTİLDİ */
+        /* Otomatik Kayan Galeri (Öztaş İçin) - SONSUZ DÖNGÜ VE SÜRÜKLEME DÜZENLEMESİ */
         .scrolling-gallery-container {
             width: 100%;
             overflow-x: hidden;
             background: #f1f2f6;
             border-radius: 8px;
             position: relative;
-            padding: 15px 0; /* Sadece alt ve üste boşluk verildi, soldan kesilme engellendi */
+            padding: 15px 0; 
         }
         .scrolling-gallery {
             display: flex;
             gap: 15px;
             overflow-x: auto;
-            scroll-behavior: smooth;
-            -ms-overflow-style: none;  /* IE ve Edge için gizle */
-            scrollbar-width: none;  /* Firefox için gizle */
-            padding: 10px 20px; /* Gölgelerin kesilmemesi ve ilk resmin tam görünmesi için eklendi */
+            /* scroll-behavior: smooth; KALDIRILDI - Titremeyi önlemek için */
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
+            padding: 10px 20px; 
+            cursor: grab; /* Sürüklenebilir olduğunu gösteren el ikonu */
+        }
+        .scrolling-gallery:active {
+            cursor: grabbing; /* Tıklayınca tutma ikonu */
         }
         .scrolling-gallery::-webkit-scrollbar {
-            display: none; /* Chrome, Safari ve Opera için gizle */
+            display: none; 
         }
         .scrolling-gallery img {
             height: 200px;
@@ -76,11 +80,13 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             flex-shrink: 0;
             object-fit: cover;
-            cursor: pointer; /* Tıklanabilir ikon */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti için */
+            /* cursor: pointer özelliği Javascript ile çakışmasın diye galerinin kendisine verildi */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            user-select: none; /* Sürüklerken resmin seçilmesini engeller */
+            -webkit-user-drag: none; /* Tarayıcının varsayılan resim sürükleme olayını engeller */
         }
         .scrolling-gallery img:hover {
-            transform: scale(1.03); /* Üzerine gelince hafif büyüme efekti */
+            transform: scale(1.03); 
             box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
 
@@ -94,8 +100,8 @@
             top: 0;
             width: 100%; 
             height: 100%; 
-            background-color: rgba(0,0,0,0.85); /* Siyah transparan arka plan */
-            backdrop-filter: blur(5px); /* Arka planı hafif buzlu yapar */
+            background-color: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(5px); 
         }
         .lightbox-content {
             margin: auto;
@@ -104,7 +110,7 @@
             max-height: 85vh;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            animation: zoomIn 0.3s ease; /* Açılış animasyonu */
+            animation: zoomIn 0.3s ease; 
         }
         @keyframes zoomIn {
             from {transform: scale(0.9); opacity: 0;}
@@ -253,16 +259,17 @@
                 </div>
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 28 Nisan 2026</div>
                 
-                <!-- Otomatik Dönen ve Tıklanabilir 7'li Galeri -->
+                <!-- Otomatik Dönen, Kaydırılabilir 7'li Galeri -->
                 <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery" id="oztasGallery">
-                        <img src="resimler/oztas1.jpg" alt="Öztaş Workshop 1" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+1'">
-                        <img src="resimler/oztas2.jpg" alt="Öztaş Workshop 2" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+2'">
-                        <img src="resimler/oztas3.jpg" alt="Öztaş Workshop 3" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+3'">
-                        <img src="resimler/oztas4.jpg" alt="Öztaş Workshop 4" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+4'">
-                        <img src="resimler/oztas5.jpg" alt="Öztaş Workshop 5" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+5'">
-                        <img src="resimler/oztas6.jpg" alt="Öztaş Workshop 6" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+6'">
-                        <img src="resimler/oztas7.jpg" alt="Öztaş Workshop 7" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+7'">
+                        <!-- JS ile bu fotoğraflar otomatik klonlanıp sonsuz döngü yaratılacak -->
+                        <img src="resimler/oztas1.jpg" alt="Öztaş Workshop 1" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+1'">
+                        <img src="resimler/oztas2.jpg" alt="Öztaş Workshop 2" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+2'">
+                        <img src="resimler/oztas3.jpg" alt="Öztaş Workshop 3" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+3'">
+                        <img src="resimler/oztas4.jpg" alt="Öztaş Workshop 4" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+4'">
+                        <img src="resimler/oztas5.jpg" alt="Öztaş Workshop 5" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+5'">
+                        <img src="resimler/oztas6.jpg" alt="Öztaş Workshop 6" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+6'">
+                        <img src="resimler/oztas7.jpg" alt="Öztaş Workshop 7" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+7'">
                     </div>
                 </div>
             </div>
@@ -331,39 +338,121 @@
             slides[slideIndex-1].style.display = "block"; dots[slideIndex-1].className += " active";
         }
 
-        // Öztaş Global Soğutma İçin Otomatik Kayan Galeri JS
+        // ==========================================
+        // GALERİ (SONSUZ DÖNGÜ + SÜRÜKLE BIRAK + LIGHTBOX)
+        // ==========================================
         const oztasGallery = document.getElementById('oztasGallery');
-        let scrollAmount = 0;
+        
+        // Kusursuz sonsuz döngü için HTML içeriğini ikiye katlıyoruz
+        oztasGallery.innerHTML += oztasGallery.innerHTML; 
+
+        let isDown = false;
+        let startX;
+        let scrollLeftPos;
+        let isDragging = false; // Tıklama ile sürüklemeyi ayırt etmek için
         
         function autoScrollGallery() {
-            // Eğer scroll sona ulaştıysa başa sar (Ufak bir tolerans payı bırakıldı ki takılmasın)
-            if (oztasGallery.scrollLeft >= (oztasGallery.scrollWidth - oztasGallery.clientWidth - 2)) {
-                oztasGallery.scrollLeft = 0;
-            } else {
-                oztasGallery.scrollLeft += 1; // Kayma hızı (Tıklama kolaylığı için yavaşlatıldı)
+            if(!isDown) {
+                oztasGallery.scrollLeft += 1.5; 
+                
+                // Tam yarısına geldiğinde (ikinci kopyanın başına) çaktırmadan sıfırla (Sonsuz Döngü)
+                if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
+                    oztasGallery.scrollLeft = 0;
+                }
             }
         }
         
-        // 30 milisaniyede bir kaydırarak akıcı bir animasyon sağla
-        let galleryTimer = setInterval(autoScrollGallery, 30);
+        // Galeriyi otomatik kaydır (20ms ile daha akıcı)
+        let galleryTimer = setInterval(autoScrollGallery, 20);
 
-        // Kullanıcı fareyle üzerine geldiğinde dursun, çekince devam etsin ki kolayca tıklayabilsin
-        oztasGallery.addEventListener('mouseenter', () => clearInterval(galleryTimer));
-        oztasGallery.addEventListener('mouseleave', () => galleryTimer = setInterval(autoScrollGallery, 30));
+        // MAUS İLE SÜRÜKLEME İŞLEMLERİ (DRAG & SWIPE)
+        oztasGallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            isDragging = false;
+            clearInterval(galleryTimer); // Tutunca kaymayı durdur
+            startX = e.pageX - oztasGallery.offsetLeft;
+            scrollLeftPos = oztasGallery.scrollLeft;
+        });
 
-        // LIGHTBOX (TAM EKRAN FOTOĞRAF) FONKSİYONLARI
+        oztasGallery.addEventListener('mouseleave', () => {
+            isDown = false;
+            clearInterval(galleryTimer);
+            galleryTimer = setInterval(autoScrollGallery, 20);
+        });
+
+        oztasGallery.addEventListener('mouseup', () => {
+            isDown = false;
+            clearInterval(galleryTimer);
+            galleryTimer = setInterval(autoScrollGallery, 20);
+        });
+
+        oztasGallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            isDragging = true; // Eğer fare hareket ediyorsa sürüklüyordur
+            const x = e.pageX - oztasGallery.offsetLeft;
+            const walk = (x - startX) * 2; // Sürükleme hızı çarpanı
+            oztasGallery.scrollLeft = scrollLeftPos - walk;
+            
+            // Sürüklerken de sonsuz döngüyü koru
+            if (oztasGallery.scrollLeft <= 0) {
+                oztasGallery.scrollLeft = oztasGallery.scrollWidth / 2;
+            } else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
+                oztasGallery.scrollLeft = 0;
+            }
+        });
+
+        // MOBİL DOKUNMATİK SÜRÜKLEME (TOUCH SWIPE)
+        oztasGallery.addEventListener('touchstart', (e) => {
+            isDown = true;
+            isDragging = false;
+            clearInterval(galleryTimer);
+            startX = e.touches[0].pageX - oztasGallery.offsetLeft;
+            scrollLeftPos = oztasGallery.scrollLeft;
+        });
+        oztasGallery.addEventListener('touchend', () => {
+            isDown = false;
+            clearInterval(galleryTimer);
+            galleryTimer = setInterval(autoScrollGallery, 20);
+        });
+        oztasGallery.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            isDragging = true;
+            const x = e.touches[0].pageX - oztasGallery.offsetLeft;
+            const walk = (x - startX) * 2;
+            oztasGallery.scrollLeft = scrollLeftPos - walk;
+            
+            if (oztasGallery.scrollLeft <= 0) {
+                oztasGallery.scrollLeft = oztasGallery.scrollWidth / 2;
+            } else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
+                oztasGallery.scrollLeft = 0;
+            }
+        });
+
+        // TIKLAMA VE LIGHTBOX (Sürükleme ile Tıklamayı ayırdık)
+        const galleryImages = oztasGallery.querySelectorAll('img');
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function(e) {
+                if(isDragging) {
+                    e.preventDefault(); // Sürüklediyse lightbox açılmasın
+                    return;
+                }
+                openLightbox(this.src); // Sadece normal tıkladıysa açılsın
+            });
+        });
+
         function openLightbox(imgSrc) {
             document.getElementById('imageLightbox').style.display = "block";
             document.getElementById('lightboxImg').src = imgSrc;
-            clearInterval(galleryTimer); // Fotoğraf açıldığında arkadaki galeri kaymayı durdursun
+            clearInterval(galleryTimer); 
         }
 
         function closeLightbox() {
             document.getElementById('imageLightbox').style.display = "none";
-            galleryTimer = setInterval(autoScrollGallery, 30); // Kapanınca galeri tekrar kaymaya başlasın
+            clearInterval(galleryTimer);
+            galleryTimer = setInterval(autoScrollGallery, 20); 
         }
 
-        // Kullanıcı siyah arka plana tıklarsa da fotoğraf kapansın
         window.onclick = function(event) {
             let modal = document.getElementById('imageLightbox');
             if (event.target == modal) {
