@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Medya & Workshop Bölümü Stilleri */
         .media-section {
             padding: 60px 20px;
             background-color: #f8f9fa;
@@ -37,10 +36,10 @@
             display: flex;
             align-items: center;
         }
-        .workshop-title i {
-            color: #d35400;
+        .workshop-title img {
+            height: 40px;
             margin-right: 15px;
-            font-size: 28px;
+            object-fit: contain;
         }
         .workshop-date {
             color: #7f8c8d;
@@ -48,8 +47,39 @@
             margin-bottom: 25px;
             font-weight: 600;
         }
-        
-        /* Otomatik Kayan Galeri (Öztaş İçin) - SONSUZ DÖNGÜ VE SÜRÜKLEME DÜZENLEMESİ */
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+            border-top: 2px dashed #eee;
+            padding-top: 20px;
+        }
+        .schedule-item {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #f9f9f9;
+            align-items: center;
+        }
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        .schedule-time {
+            font-weight: 700;
+            color: #28528f;
+            width: 140px;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+        .schedule-desc {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .schedule-desc.break {
+            color: #d35400;
+            font-style: italic;
+            font-weight: 600;
+        }
         .scrolling-gallery-container {
             width: 100%;
             overflow-x: hidden;
@@ -62,14 +92,13 @@
             display: flex;
             gap: 15px;
             overflow-x: auto;
-            /* scroll-behavior: smooth; KALDIRILDI - Titremeyi önlemek için */
             -ms-overflow-style: none;  
             scrollbar-width: none;  
             padding: 10px 20px; 
-            cursor: grab; /* Sürüklenebilir olduğunu gösteren el ikonu */
+            cursor: grab;
         }
         .scrolling-gallery:active {
-            cursor: grabbing; /* Tıklayınca tutma ikonu */
+            cursor: grabbing;
         }
         .scrolling-gallery::-webkit-scrollbar {
             display: none; 
@@ -81,17 +110,32 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             flex-shrink: 0;
             object-fit: cover;
-            /* cursor: pointer özelliği Javascript ile çakışmasın diye galerinin kendisine verildi */
             transition: transform 0.3s ease, box-shadow 0.3s ease; 
-            user-select: none; /* Sürüklerken resmin seçilmesini engeller */
-            -webkit-user-drag: none; /* Tarayıcının varsayılan resim sürükleme olayını engeller */
+            user-select: none;
+            -webkit-user-drag: none;
         }
         .scrolling-gallery img:hover {
             transform: scale(1.03); 
             box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
-
-        /* LIGHTBOX (Tam Ekran Fotoğraf) Stilleri */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+        }
         .lightbox-modal {
             display: none; 
             position: fixed; 
@@ -132,8 +176,6 @@
             color: #e74c3c;
             text-decoration: none;
         }
-
-        /* Karşılama Panosu Stilleri (Alt Kısım) */
         .official-welcome-box {
             background: linear-gradient(135deg, #28528f 0%, #1a3a63 100%);
             color: #ffffff;
@@ -244,7 +286,6 @@
         </div>
     </section>
 
-    <!-- MEDYA VE ETKİNLİKLER BÖLÜMÜ BAŞLANGICI -->
     <section class="media-section">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-photo-video" style="margin-right: 15px;"></i>Medya</h2>
@@ -253,17 +294,14 @@
                 <h3 style="color: #2c3e50; font-size: 28px;"><i class="fas fa-chalkboard-teacher" style="color: #28528f; margin-right: 10px;"></i> Workshoplar</h3>
             </div>
 
-            <!-- Öztaş Global Soğutma Workshop -->
             <div class="workshop-card">
                 <div class="workshop-title">
-                    <i class="fas fa-snowflake"></i> Öztaş Global Soğutma
+                    <img src="resimler/oztas.png" alt="Öztaş Global Soğutma Logo"> Öztaş Global Soğutma
                 </div>
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 28 Nisan 2026</div>
                 
-                <!-- Otomatik Dönen, Kaydırılabilir 7'li Galeri -->
                 <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery" id="oztasGallery">
-                        <!-- JS ile bu fotoğraflar otomatik klonlanıp sonsuz döngü yaratılacak -->
                         <img src="resimler/oztas1.jpg" alt="Öztaş Workshop 1" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+1'">
                         <img src="resimler/oztas2.jpg" alt="Öztaş Workshop 2" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+2'">
                         <img src="resimler/oztas3.jpg" alt="Öztaş Workshop 3" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+3'">
@@ -275,35 +313,76 @@
                 </div>
             </div>
 
-            <!-- Özdisan Workshop -->
             <div class="workshop-card">
                 <div class="workshop-title">
                     <i class="fas fa-microchip"></i> Özdisan
                 </div>
-                <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 5 Mayıs 2026, Salı | <i class="far fa-clock" style="margin: 0 5px 0 10px;"></i> 09.00 - 16.30</div>
-                <p style="color: #555; font-size: 16px; line-height: 1.6;">Sektörün öncü firmalarından Özdisan ile gerçekleştirilen uygulamalı workshop etkinliğimiz.</p>
+                <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 5 Mayıs 2026, Salı</div>
+                <p style="color: #555; font-size: 16px; line-height: 1.6;">Sektörün öncü firmalarından Özdisan ile gerçekleştirilen uygulamalı workshop etkinliğimizin programı aşağıdadır:</p>
+                
+                <ul class="schedule-list">
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 09.00 - 10.00</span>
+                        <span class="schedule-desc">Özdisan ve Boardoza markalarının tanıtımı</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 10.00 - 11.00</span>
+                        <span class="schedule-desc">Mikrodenetleyiciler, Mikroişlemciler ve IoT üzerine teorik anlatım</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 11.00 - 12.00</span>
+                        <span class="schedule-desc">TH09C sıcaklık ve nem ölçümü</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 12.00 - 13.00</span>
+                        <span class="schedule-desc break"><i class="fas fa-mug-hot"></i> Mola</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 13.00 - 13.40</span>
+                        <span class="schedule-desc">Lidar sensör ile mesafe ölçümü</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 13.40 - 14.20</span>
+                        <span class="schedule-desc">FT800 kartı ile 4.3" TFT ekrana veri yazdırma</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 14.20 - 14.30</span>
+                        <span class="schedule-desc break"><i class="fas fa-mug-hot"></i> Mola</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 14.30 - 15.30</span>
+                        <span class="schedule-desc">Sıcaklık ve nem bilgisinin cloud üzerinde görüntülenmesi</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 15.30 - 16.30</span>
+                        <span class="schedule-desc">Cloud üzerinden servo motor kontrolü</span>
+                    </li>
+                    <li class="schedule-item">
+                        <span class="schedule-time"><i class="far fa-clock"></i> 16.30 - 17.00</span>
+                        <span class="schedule-desc">Kapanış</span>
+                    </li>
+                </ul>
             </div>
 
-            <!-- Sergi Resimleri -->
             <div style="border-bottom: 2px solid #ddd; margin: 60px 0 30px 0; padding-bottom: 10px;">
                 <h3 style="color: #2c3e50; font-size: 28px;"><i class="fas fa-camera-retro" style="color: #28528f; margin-right: 10px;"></i> Proje Sergimizden Kareler</h3>
             </div>
             
-            <!-- Profesyonel "Çok Yakında" Panosu -->
-            <div style="background: #ffffff; border: 2px dashed #b2bec3; border-radius: 12px; padding: 60px 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
-                <i class="far fa-images" style="font-size: 55px; color: #cbd5e1; margin-bottom: 20px;"></i>
-                <h4 style="color: #28528f; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Etkinlik Kareleri Çok Yakında!</h4>
-                <p style="color: #7f8c8d; font-size: 17px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
-                    Proje Yarışması ve Sergisi'nden en özel anlar ve fotoğraflar, etkinliğimizin tamamlanmasının ardından bu alanda yayınlanacaktır. Öğrencilerimizin yenilikçi projelerini sergilediği o heyecan dolu anları görmek için beklemede kalın.
-                </p>
+            <div class="gallery-grid">
+                <img src="resimler/sergi1.jpg" alt="Sergi Fotoğrafı 1" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300/eeeeee/888888?text=Gorsel+Bulunamadi'">
+                <img src="resimler/sergi2.jpg" alt="Sergi Fotoğrafı 2" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300/eeeeee/888888?text=Gorsel+Bulunamadi'">
+                <img src="resimler/sergi3.jpg" alt="Sergi Fotoğrafı 3" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300/eeeeee/888888?text=Gorsel+Bulunamadi'">
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <h4 style="color: #28528f; font-size: 22px; margin-bottom: 20px;"><i class="fab fa-youtube" style="color: #ff0000; margin-right: 10px;"></i>Sergi Turu</h4>
+                <iframe width="100%" height="450" style="max-width: 800px; border-radius: 12px; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" src="https://www.youtube.com/embed/z9Ut74mvWPU" allowfullscreen></iframe>
             </div>
 
         </div>
     </section>
-    <!-- MEDYA VE ETKİNLİKLER BÖLÜMÜ SONU -->
 
     <main class="container" style="padding: 20px;">
-        <!-- PROFESYONEL KARŞILAMA VE BUTON ALANI -->
         <div class="official-welcome-box">
             <h2 class="welcome-heading">Proje Portalı'na Hoş Geldiniz</h2>
             <p class="welcome-text">
@@ -319,14 +398,12 @@
         <div class="container"><p>&copy; 2026 Ege Üniversitesi MYO - mbselek.com.tr</p></div>
     </footer>
 
-    <!-- GİZLİ LIGHTBOX (TAM EKRAN FOTOĞRAF) ALANI -->
     <div id="imageLightbox" class="lightbox-modal">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img class="lightbox-content" id="lightboxImg">
     </div>
 
     <script>
-        // Ana Slider JS
         let slideIndex = 1; showSlides(slideIndex);
         let autoSlide = setInterval(function() { plusSlides(1); }, 5000);
         function plusSlides(n) { showSlides(slideIndex += n); clearInterval(autoSlide); autoSlide = setInterval(function() { plusSlides(1); }, 5000); }
@@ -339,38 +416,31 @@
             slides[slideIndex-1].style.display = "block"; dots[slideIndex-1].className += " active";
         }
 
-        // ==========================================
-        // GALERİ (SONSUZ DÖNGÜ + SÜRÜKLE BIRAK + LIGHTBOX)
-        // ==========================================
         const oztasGallery = document.getElementById('oztasGallery');
         
-        // Kusursuz sonsuz döngü için HTML içeriğini ikiye katlıyoruz
         oztasGallery.innerHTML += oztasGallery.innerHTML; 
 
         let isDown = false;
         let startX;
         let scrollLeftPos;
-        let isDragging = false; // Tıklama ile sürüklemeyi ayırt etmek için
+        let isDragging = false; 
         
         function autoScrollGallery() {
             if(!isDown) {
                 oztasGallery.scrollLeft += 1.5; 
                 
-                // Tam yarısına geldiğinde (ikinci kopyanın başına) çaktırmadan sıfırla (Sonsuz Döngü)
                 if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
                     oztasGallery.scrollLeft = 0;
                 }
             }
         }
         
-        // Galeriyi otomatik kaydır (20ms ile daha akıcı)
         let galleryTimer = setInterval(autoScrollGallery, 20);
 
-        // MAUS İLE SÜRÜKLEME İŞLEMLERİ (DRAG & SWIPE)
         oztasGallery.addEventListener('mousedown', (e) => {
             isDown = true;
             isDragging = false;
-            clearInterval(galleryTimer); // Tutunca kaymayı durdur
+            clearInterval(galleryTimer); 
             startX = e.pageX - oztasGallery.offsetLeft;
             scrollLeftPos = oztasGallery.scrollLeft;
         });
@@ -390,12 +460,11 @@
         oztasGallery.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
-            isDragging = true; // Eğer fare hareket ediyorsa sürüklüyordur
+            isDragging = true; 
             const x = e.pageX - oztasGallery.offsetLeft;
-            const walk = (x - startX) * 2; // Sürükleme hızı çarpanı
+            const walk = (x - startX) * 2; 
             oztasGallery.scrollLeft = scrollLeftPos - walk;
             
-            // Sürüklerken de sonsuz döngüyü koru
             if (oztasGallery.scrollLeft <= 0) {
                 oztasGallery.scrollLeft = oztasGallery.scrollWidth / 2;
             } else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
@@ -403,7 +472,6 @@
             }
         });
 
-        // MOBİL DOKUNMATİK SÜRÜKLEME (TOUCH SWIPE)
         oztasGallery.addEventListener('touchstart', (e) => {
             isDown = true;
             isDragging = false;
@@ -430,15 +498,14 @@
             }
         });
 
-        // TIKLAMA VE LIGHTBOX (Sürükleme ile Tıklamayı ayırdık)
         const galleryImages = oztasGallery.querySelectorAll('img');
         galleryImages.forEach(img => {
             img.addEventListener('click', function(e) {
                 if(isDragging) {
-                    e.preventDefault(); // Sürüklediyse lightbox açılmasın
+                    e.preventDefault(); 
                     return;
                 }
-                openLightbox(this.src); // Sadece normal tıkladıysa açılsın
+                openLightbox(this.src); 
             });
         });
 
