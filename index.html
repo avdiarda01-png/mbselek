@@ -47,39 +47,6 @@
             margin-bottom: 25px;
             font-weight: 600;
         }
-        .schedule-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 25px;
-            border-top: 2px dashed #eee;
-            padding-top: 20px;
-        }
-        .schedule-item {
-            display: flex;
-            padding: 12px 0;
-            border-bottom: 1px solid #f9f9f9;
-            align-items: center;
-        }
-        .schedule-item:last-child {
-            border-bottom: none;
-        }
-        .schedule-time {
-            font-weight: 700;
-            color: #28528f;
-            width: 140px;
-            flex-shrink: 0;
-            font-size: 16px;
-        }
-        .schedule-desc {
-            color: #444;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        .schedule-desc.break {
-            color: #d35400;
-            font-style: italic;
-            font-weight: 600;
-        }
         .scrolling-gallery-container {
             width: 100%;
             overflow-x: hidden;
@@ -299,6 +266,7 @@
                     <img src="resimler/oztas.png" alt="Öztaş Global Soğutma Logo"> Öztaş Global Soğutma
                 </div>
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 28 Nisan 2026</div>
+                <p style="color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 25px;">Sektörün öncü firmalarından Öztaş Global Soğutma uzmanlarıyla gerçekleştirdiğimiz teknik eğitim ve workshop etkinliğimiz.</p>
                 
                 <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery" id="oztasGallery">
@@ -321,7 +289,7 @@
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 5 Mayıs 2026, Salı</div>
                 <p style="color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 25px;">Sektörün öncü firmalarından Özdisan ile gerçekleştirilen uygulamalı workshop etkinliğimiz.</p>
                 
-                <div class="scrolling-gallery-container" style="margin-bottom: 30px;">
+                <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery" id="ozdisanGallery">
                         <img src="resimler/ozdisan1.jpg" alt="Özdisan Workshop 1" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+1'">
                         <img src="resimler/ozdisan2.jpg" alt="Özdisan Workshop 2" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+2'">
@@ -337,50 +305,6 @@
                         <img src="resimler/ozdisan12.jpg" alt="Özdisan Workshop 12" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+12'">
                     </div>
                 </div>
-
-                <p style="color: #555; font-size: 16px; line-height: 1.6; font-weight: bold;">Etkinlik Programı:</p>
-                <ul class="schedule-list">
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 09.00 - 10.00</span>
-                        <span class="schedule-desc">Özdisan ve Boardoza markalarının tanıtımı</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 10.00 - 11.00</span>
-                        <span class="schedule-desc">Mikrodenetleyiciler, Mikroişlemciler ve IoT üzerine teorik anlatım</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 11.00 - 12.00</span>
-                        <span class="schedule-desc">TH09C sıcaklık ve nem ölçümü</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 12.00 - 13.00</span>
-                        <span class="schedule-desc break"><i class="fas fa-mug-hot"></i> Mola</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 13.00 - 13.40</span>
-                        <span class="schedule-desc">Lidar sensör ile mesafe ölçümü</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 13.40 - 14.20</span>
-                        <span class="schedule-desc">FT800 kartı ile 4.3" TFT ekrana veri yazdırma</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 14.20 - 14.30</span>
-                        <span class="schedule-desc break"><i class="fas fa-mug-hot"></i> Mola</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 14.30 - 15.30</span>
-                        <span class="schedule-desc">Sıcaklık ve nem bilgisinin cloud üzerinde görüntülenmesi</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 15.30 - 16.30</span>
-                        <span class="schedule-desc">Cloud üzerinden servo motor kontrolü</span>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time"><i class="far fa-clock"></i> 16.30 - 17.00</span>
-                        <span class="schedule-desc">Kapanış</span>
-                    </li>
-                </ul>
             </div>
 
             <div style="border-bottom: 2px solid #ddd; margin: 60px 0 30px 0; padding-bottom: 10px;">
@@ -435,9 +359,6 @@
             slides[slideIndex-1].style.display = "block"; dots[slideIndex-1].className += " active";
         }
 
-        // ==========================================
-        // GALERİ 1: ÖZTAŞ GLOBAL SOĞUTMA
-        // ==========================================
         const oztasGallery = document.getElementById('oztasGallery');
         oztasGallery.innerHTML += oztasGallery.innerHTML; 
 
@@ -489,9 +410,6 @@
             else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) oztasGallery.scrollLeft = 0;
         });
 
-        // ==========================================
-        // GALERİ 2: ÖZDİSAN
-        // ==========================================
         const ozdisanGallery = document.getElementById('ozdisanGallery');
         ozdisanGallery.innerHTML += ozdisanGallery.innerHTML; 
 
@@ -543,9 +461,6 @@
             else if (ozdisanGallery.scrollLeft >= ozdisanGallery.scrollWidth / 2) ozdisanGallery.scrollLeft = 0;
         });
 
-        // ==========================================
-        // LIGHTBOX VE TIKLAMA OLAYLARI (Ortak)
-        // ==========================================
         function setupLightbox(galleryElement, isDraggingFlag, timerVar) {
             const images = galleryElement.querySelectorAll('img');
             images.forEach(img => {
@@ -562,7 +477,6 @@
         setupLightbox(oztasGallery, isDragging1, oztasTimer);
         setupLightbox(ozdisanGallery, isDragging2, ozdisanTimer);
 
-        // Bağımsız sergi fotoğrafları için
         const sergiImages = document.querySelectorAll('.gallery-grid img');
         sergiImages.forEach(img => {
             img.addEventListener('click', function() {
@@ -570,7 +484,7 @@
             });
         });
 
-        let activeTimer = null; // Hangi galerinin durdurulduğunu takip etmek için
+        let activeTimer = null; 
 
         function openLightbox(imgSrc, timerToStop) {
             document.getElementById('imageLightbox').style.display = "block";
@@ -579,7 +493,6 @@
                 clearInterval(timerToStop);
                 activeTimer = timerToStop;
             } else {
-                // Eğer sergi fotoğrafıysa her iki galeriyi de durdur
                 clearInterval(oztasTimer);
                 clearInterval(ozdisanTimer);
             }
@@ -587,7 +500,6 @@
 
         function closeLightbox() {
             document.getElementById('imageLightbox').style.display = "none";
-            // Kapanınca her ikisini de tekrar başlat
             clearInterval(oztasTimer);
             clearInterval(ozdisanTimer);
             oztasTimer = setInterval(autoScrollOztas, 20);
