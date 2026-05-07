@@ -319,8 +319,26 @@
                     <img src="resimler/ozdisan.png" alt="Özdisan Logo" style="height: 75px; margin-left: 20px; margin-right: 0;">
                 </div>
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 5 Mayıs 2026, Salı</div>
-                <p style="color: #555; font-size: 16px; line-height: 1.6;">Sektörün öncü firmalarından Özdisan ile gerçekleştirilen uygulamalı workshop etkinliğimizin programı aşağıdadır:</p>
+                <p style="color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 25px;">Sektörün öncü firmalarından Özdisan ile gerçekleştirilen uygulamalı workshop etkinliğimiz.</p>
                 
+                <div class="scrolling-gallery-container" style="margin-bottom: 30px;">
+                    <div class="scrolling-gallery" id="ozdisanGallery">
+                        <img src="resimler/ozdisan1.jpg" alt="Özdisan Workshop 1" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+1'">
+                        <img src="resimler/ozdisan2.jpg" alt="Özdisan Workshop 2" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+2'">
+                        <img src="resimler/ozdisan3.jpg" alt="Özdisan Workshop 3" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+3'">
+                        <img src="resimler/ozdisan4.jpg" alt="Özdisan Workshop 4" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+4'">
+                        <img src="resimler/ozdisan5.jpg" alt="Özdisan Workshop 5" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+5'">
+                        <img src="resimler/ozdisan6.jpg" alt="Özdisan Workshop 6" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+6'">
+                        <img src="resimler/ozdisan7.jpg" alt="Özdisan Workshop 7" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+7'">
+                        <img src="resimler/ozdisan8.jpg" alt="Özdisan Workshop 8" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+8'">
+                        <img src="resimler/ozdisan9.jpg" alt="Özdisan Workshop 9" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+9'">
+                        <img src="resimler/ozdisan10.jpg" alt="Özdisan Workshop 10" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+10'">
+                        <img src="resimler/ozdisan11.jpg" alt="Özdisan Workshop 11" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+11'">
+                        <img src="resimler/ozdisan12.jpg" alt="Özdisan Workshop 12" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Gorsel+12'">
+                    </div>
+                </div>
+
+                <p style="color: #555; font-size: 16px; line-height: 1.6; font-weight: bold;">Etkinlik Programı:</p>
                 <ul class="schedule-list">
                     <li class="schedule-item">
                         <span class="schedule-time"><i class="far fa-clock"></i> 09.00 - 10.00</span>
@@ -417,109 +435,163 @@
             slides[slideIndex-1].style.display = "block"; dots[slideIndex-1].className += " active";
         }
 
+        // ==========================================
+        // GALERİ 1: ÖZTAŞ GLOBAL SOĞUTMA
+        // ==========================================
         const oztasGallery = document.getElementById('oztasGallery');
-        
         oztasGallery.innerHTML += oztasGallery.innerHTML; 
 
-        let isDown = false;
-        let startX;
-        let scrollLeftPos;
-        let isDragging = false; 
+        let isDown1 = false;
+        let startX1;
+        let scrollLeftPos1;
+        let isDragging1 = false; 
         
-        function autoScrollGallery() {
-            if(!isDown) {
+        function autoScrollOztas() {
+            if(!isDown1) {
                 oztasGallery.scrollLeft += 1.5; 
-                
                 if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
                     oztasGallery.scrollLeft = 0;
                 }
             }
         }
-        
-        let galleryTimer = setInterval(autoScrollGallery, 20);
+        let oztasTimer = setInterval(autoScrollOztas, 20);
 
         oztasGallery.addEventListener('mousedown', (e) => {
-            isDown = true;
-            isDragging = false;
-            clearInterval(galleryTimer); 
-            startX = e.pageX - oztasGallery.offsetLeft;
-            scrollLeftPos = oztasGallery.scrollLeft;
+            isDown1 = true; isDragging1 = false; clearInterval(oztasTimer); 
+            startX1 = e.pageX - oztasGallery.offsetLeft; scrollLeftPos1 = oztasGallery.scrollLeft;
         });
-
         oztasGallery.addEventListener('mouseleave', () => {
-            isDown = false;
-            clearInterval(galleryTimer);
-            galleryTimer = setInterval(autoScrollGallery, 20);
+            isDown1 = false; clearInterval(oztasTimer); oztasTimer = setInterval(autoScrollOztas, 20);
         });
-
         oztasGallery.addEventListener('mouseup', () => {
-            isDown = false;
-            clearInterval(galleryTimer);
-            galleryTimer = setInterval(autoScrollGallery, 20);
+            isDown1 = false; clearInterval(oztasTimer); oztasTimer = setInterval(autoScrollOztas, 20);
         });
-
         oztasGallery.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            isDragging = true; 
-            const x = e.pageX - oztasGallery.offsetLeft;
-            const walk = (x - startX) * 2; 
-            oztasGallery.scrollLeft = scrollLeftPos - walk;
-            
-            if (oztasGallery.scrollLeft <= 0) {
-                oztasGallery.scrollLeft = oztasGallery.scrollWidth / 2;
-            } else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
-                oztasGallery.scrollLeft = 0;
-            }
+            if (!isDown1) return;
+            e.preventDefault(); isDragging1 = true; 
+            const walk = (e.pageX - oztasGallery.offsetLeft - startX1) * 2; 
+            oztasGallery.scrollLeft = scrollLeftPos1 - walk;
+            if (oztasGallery.scrollLeft <= 0) oztasGallery.scrollLeft = oztasGallery.scrollWidth / 2;
+            else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) oztasGallery.scrollLeft = 0;
         });
-
         oztasGallery.addEventListener('touchstart', (e) => {
-            isDown = true;
-            isDragging = false;
-            clearInterval(galleryTimer);
-            startX = e.touches[0].pageX - oztasGallery.offsetLeft;
-            scrollLeftPos = oztasGallery.scrollLeft;
+            isDown1 = true; isDragging1 = false; clearInterval(oztasTimer);
+            startX1 = e.touches[0].pageX - oztasGallery.offsetLeft; scrollLeftPos1 = oztasGallery.scrollLeft;
         });
         oztasGallery.addEventListener('touchend', () => {
-            isDown = false;
-            clearInterval(galleryTimer);
-            galleryTimer = setInterval(autoScrollGallery, 20);
+            isDown1 = false; clearInterval(oztasTimer); oztasTimer = setInterval(autoScrollOztas, 20);
         });
         oztasGallery.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
-            isDragging = true;
-            const x = e.touches[0].pageX - oztasGallery.offsetLeft;
-            const walk = (x - startX) * 2;
-            oztasGallery.scrollLeft = scrollLeftPos - walk;
-            
-            if (oztasGallery.scrollLeft <= 0) {
-                oztasGallery.scrollLeft = oztasGallery.scrollWidth / 2;
-            } else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) {
-                oztasGallery.scrollLeft = 0;
-            }
+            if (!isDown1) return; isDragging1 = true;
+            const walk = (e.touches[0].pageX - oztasGallery.offsetLeft - startX1) * 2;
+            oztasGallery.scrollLeft = scrollLeftPos1 - walk;
+            if (oztasGallery.scrollLeft <= 0) oztasGallery.scrollLeft = oztasGallery.scrollWidth / 2;
+            else if (oztasGallery.scrollLeft >= oztasGallery.scrollWidth / 2) oztasGallery.scrollLeft = 0;
         });
 
-        const galleryImages = oztasGallery.querySelectorAll('img');
-        galleryImages.forEach(img => {
-            img.addEventListener('click', function(e) {
-                if(isDragging) {
-                    e.preventDefault(); 
-                    return;
+        // ==========================================
+        // GALERİ 2: ÖZDİSAN
+        // ==========================================
+        const ozdisanGallery = document.getElementById('ozdisanGallery');
+        ozdisanGallery.innerHTML += ozdisanGallery.innerHTML; 
+
+        let isDown2 = false;
+        let startX2;
+        let scrollLeftPos2;
+        let isDragging2 = false; 
+        
+        function autoScrollOzdisan() {
+            if(!isDown2) {
+                ozdisanGallery.scrollLeft += 1.5; 
+                if (ozdisanGallery.scrollLeft >= ozdisanGallery.scrollWidth / 2) {
+                    ozdisanGallery.scrollLeft = 0;
                 }
-                openLightbox(this.src); 
+            }
+        }
+        let ozdisanTimer = setInterval(autoScrollOzdisan, 20);
+
+        ozdisanGallery.addEventListener('mousedown', (e) => {
+            isDown2 = true; isDragging2 = false; clearInterval(ozdisanTimer); 
+            startX2 = e.pageX - ozdisanGallery.offsetLeft; scrollLeftPos2 = ozdisanGallery.scrollLeft;
+        });
+        ozdisanGallery.addEventListener('mouseleave', () => {
+            isDown2 = false; clearInterval(ozdisanTimer); ozdisanTimer = setInterval(autoScrollOzdisan, 20);
+        });
+        ozdisanGallery.addEventListener('mouseup', () => {
+            isDown2 = false; clearInterval(ozdisanTimer); ozdisanTimer = setInterval(autoScrollOzdisan, 20);
+        });
+        ozdisanGallery.addEventListener('mousemove', (e) => {
+            if (!isDown2) return;
+            e.preventDefault(); isDragging2 = true; 
+            const walk = (e.pageX - ozdisanGallery.offsetLeft - startX2) * 2; 
+            ozdisanGallery.scrollLeft = scrollLeftPos2 - walk;
+            if (ozdisanGallery.scrollLeft <= 0) ozdisanGallery.scrollLeft = ozdisanGallery.scrollWidth / 2;
+            else if (ozdisanGallery.scrollLeft >= ozdisanGallery.scrollWidth / 2) ozdisanGallery.scrollLeft = 0;
+        });
+        ozdisanGallery.addEventListener('touchstart', (e) => {
+            isDown2 = true; isDragging2 = false; clearInterval(ozdisanTimer);
+            startX2 = e.touches[0].pageX - ozdisanGallery.offsetLeft; scrollLeftPos2 = ozdisanGallery.scrollLeft;
+        });
+        ozdisanGallery.addEventListener('touchend', () => {
+            isDown2 = false; clearInterval(ozdisanTimer); ozdisanTimer = setInterval(autoScrollOzdisan, 20);
+        });
+        ozdisanGallery.addEventListener('touchmove', (e) => {
+            if (!isDown2) return; isDragging2 = true;
+            const walk = (e.touches[0].pageX - ozdisanGallery.offsetLeft - startX2) * 2;
+            ozdisanGallery.scrollLeft = scrollLeftPos2 - walk;
+            if (ozdisanGallery.scrollLeft <= 0) ozdisanGallery.scrollLeft = ozdisanGallery.scrollWidth / 2;
+            else if (ozdisanGallery.scrollLeft >= ozdisanGallery.scrollWidth / 2) ozdisanGallery.scrollLeft = 0;
+        });
+
+        // ==========================================
+        // LIGHTBOX VE TIKLAMA OLAYLARI (Ortak)
+        // ==========================================
+        function setupLightbox(galleryElement, isDraggingFlag, timerVar) {
+            const images = galleryElement.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('click', function(e) {
+                    if(isDraggingFlag) {
+                        e.preventDefault(); 
+                        return;
+                    }
+                    openLightbox(this.src, timerVar); 
+                });
+            });
+        }
+
+        setupLightbox(oztasGallery, isDragging1, oztasTimer);
+        setupLightbox(ozdisanGallery, isDragging2, ozdisanTimer);
+
+        // Bağımsız sergi fotoğrafları için
+        const sergiImages = document.querySelectorAll('.gallery-grid img');
+        sergiImages.forEach(img => {
+            img.addEventListener('click', function() {
+                openLightbox(this.src, null); 
             });
         });
 
-        function openLightbox(imgSrc) {
+        let activeTimer = null; // Hangi galerinin durdurulduğunu takip etmek için
+
+        function openLightbox(imgSrc, timerToStop) {
             document.getElementById('imageLightbox').style.display = "block";
             document.getElementById('lightboxImg').src = imgSrc;
-            clearInterval(galleryTimer); 
+            if (timerToStop) {
+                clearInterval(timerToStop);
+                activeTimer = timerToStop;
+            } else {
+                // Eğer sergi fotoğrafıysa her iki galeriyi de durdur
+                clearInterval(oztasTimer);
+                clearInterval(ozdisanTimer);
+            }
         }
 
         function closeLightbox() {
             document.getElementById('imageLightbox').style.display = "none";
-            clearInterval(galleryTimer);
-            galleryTimer = setInterval(autoScrollGallery, 20); 
+            // Kapanınca her ikisini de tekrar başlat
+            clearInterval(oztasTimer);
+            clearInterval(ozdisanTimer);
+            oztasTimer = setInterval(autoScrollOztas, 20);
+            ozdisanTimer = setInterval(autoScrollOzdisan, 20);
         }
 
         window.onclick = function(event) {
