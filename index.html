@@ -26,7 +26,7 @@
         }
         .aas-gate-card {
             width: 100%;
-            max-width: 440px;
+            max-width: 450px;
             background: linear-gradient(165deg, #121419 0%, #090A0C 100%);
             border: 1px solid rgba(200, 164, 77, 0.45);
             border-radius: 16px;
@@ -37,7 +37,7 @@
         .aas-gate-badge {
             width: 52px;
             height: 52px;
-            margin: 0 auto 18px;
+            margin: 0 auto 14px;
             border-radius: 12px;
             background: rgba(200, 164, 77, 0.1);
             border: 1px solid rgba(200, 164, 77, 0.5);
@@ -49,8 +49,16 @@
             font-weight: 800;
             letter-spacing: 0.04em;
         }
+        .aas-gate-kicker {
+            margin: 0 0 8px;
+            color: #DFC06E;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
         .aas-gate-title {
-            margin: 0 0 10px;
+            margin: 0 0 12px;
             color: #F4F5F7;
             font-size: 21px;
             font-weight: 700;
@@ -60,7 +68,7 @@
             margin: 0 0 26px;
             color: #9CA3AF;
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.65;
         }
         .aas-gate-actions {
             display: grid;
@@ -335,9 +343,10 @@
     <div id="aas-gate-overlay" role="dialog" aria-modal="true" aria-labelledby="aas-gate-heading">
         <div class="aas-gate-card">
             <div class="aas-gate-badge">A</div>
-            <h2 id="aas-gate-heading" class="aas-gate-title">Proje sitesiyle devam et</h2>
+            <div class="aas-gate-kicker">AVDİ ARDA SANCAKLI • TECRÜBE &amp; DENEYİM</div>
+            <h2 id="aas-gate-heading" class="aas-gate-title">Tecrübe ve Deneyim Portfolyosu</h2>
             <p class="aas-gate-desc">
-                Avdi Arda Sancaklı mühendislik &amp; yazılım portfolyosuna geçmek için <strong>EVET</strong>, Ege MYO Elektronik Haberleşme Teknolojisi portalında kalmak için <strong>HAYIR</strong> seçin.
+                Donanım, otomasyon ve yazılım alanındaki saha tecrübemi, geliştirdiğim sistemleri ve deneyimlerimi incelemek için <strong>EVET</strong>, Ege MYO Proje Portalı'nda kalmak için <strong>HAYIR</strong> seçin.
             </p>
             <div class="aas-gate-actions">
                 <button type="button" id="aas-btn-yes" class="aas-gate-btn aas-gate-btn-yes">EVET</button>
@@ -350,6 +359,15 @@
             var overlay = document.getElementById('aas-gate-overlay');
             var btnYes = document.getElementById('aas-btn-yes');
             var btnNo = document.getElementById('aas-btn-no');
+
+            if (window.location.search.indexOf('portal=1') !== -1) {
+                overlay.remove();
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+                return;
+            }
+
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
 
