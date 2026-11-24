@@ -5,8 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ege MYO Proje Portalı | 2026</title>
     <link rel="icon" href="resimler/bolum-logo.png" type="image/png">
+    <style>
+        /* GİRİŞ YÖNLENDİRME KUTUSU - EN ÖNCELİKLİ ÇİZİM */
+        #aas-gate-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483647;
+            background: rgba(5, 5, 6, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        #aas-gate-overlay * {
+            box-sizing: border-box;
+        }
+        .aas-gate-card {
+            width: 100%;
+            max-width: 440px;
+            background: linear-gradient(165deg, #121419 0%, #090A0C 100%);
+            border: 1px solid rgba(200, 164, 77, 0.45);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(200, 164, 77, 0.12);
+        }
+        .aas-gate-badge {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 18px;
+            border-radius: 12px;
+            background: rgba(200, 164, 77, 0.1);
+            border: 1px solid rgba(200, 164, 77, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #DFC06E;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+        .aas-gate-title {
+            margin: 0 0 10px;
+            color: #F4F5F7;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .aas-gate-desc {
+            margin: 0 0 26px;
+            color: #9CA3AF;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .aas-gate-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .aas-gate-btn {
+            appearance: none;
+            border-radius: 10px;
+            padding: 13px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+        }
+        .aas-gate-btn:active {
+            transform: scale(0.98);
+        }
+        .aas-gate-btn-yes {
+            background: linear-gradient(135deg, #DFC06E 0%, #B8923A 100%);
+            color: #08080A;
+            border: 1px solid #E6CA7E;
+            box-shadow: 0 6px 20px rgba(200, 164, 77, 0.25);
+        }
+        .aas-gate-btn-yes:hover {
+            background: linear-gradient(135deg, #E8CC7E 0%, #C8A44D 100%);
+        }
+        .aas-gate-btn-no {
+            background: rgba(255, 255, 255, 0.04);
+            color: #D1D5DB;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+        .aas-gate-btn-no:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+        }
+    </style>
     <link rel="stylesheet" href="style.css?v=6">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <style>
         .media-section {
             padding: 60px 20px;
@@ -233,110 +328,6 @@
             transform: translateY(-3px);
             background-color: #f1f2f6;
         }
-
-        /* GİRİŞ YÖNLENDİRME AÇILIR KUTUSU */
-        #aas-gate-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 2147483647;
-            background: rgba(5, 5, 6, 0.84);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            animation: aasFadeIn 0.25s ease-out forwards;
-        }
-        #aas-gate-overlay * {
-            box-sizing: border-box;
-        }
-        .aas-gate-card {
-            width: 100%;
-            max-width: 440px;
-            background: linear-gradient(165deg, #121419 0%, #090A0C 100%);
-            border: 1px solid rgba(200, 164, 77, 0.45);
-            border-radius: 16px;
-            padding: 32px 28px;
-            text-align: center;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(200, 164, 77, 0.12);
-            animation: aasCardPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .aas-gate-badge {
-            width: 52px;
-            height: 52px;
-            margin: 0 auto 18px;
-            border-radius: 12px;
-            background: rgba(200, 164, 77, 0.1);
-            border: 1px solid rgba(200, 164, 77, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #DFC06E;
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-        }
-        .aas-gate-title {
-            margin: 0 0 10px;
-            color: #F4F5F7;
-            font-size: 21px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        .aas-gate-desc {
-            margin: 0 0 26px;
-            color: #9CA3AF;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .aas-gate-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .aas-gate-btn {
-            appearance: none;
-            border-radius: 10px;
-            padding: 13px 18px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            cursor: pointer;
-            transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
-        }
-        .aas-gate-btn:active {
-            transform: scale(0.98);
-        }
-        .aas-gate-btn-yes {
-            background: linear-gradient(135deg, #DFC06E 0%, #B8923A 100%);
-            color: #08080A;
-            border: 1px solid #E6CA7E;
-            box-shadow: 0 6px 20px rgba(200, 164, 77, 0.25);
-        }
-        .aas-gate-btn-yes:hover {
-            background: linear-gradient(135deg, #E8CC7E 0%, #C8A44D 100%);
-        }
-        .aas-gate-btn-no {
-            background: rgba(255, 255, 255, 0.04);
-            color: #D1D5DB;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-        }
-        .aas-gate-btn-no:hover {
-            background: rgba(255, 255, 255, 0.09);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: #FFFFFF;
-        }
-        @keyframes aasFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes aasCardPop {
-            from { opacity: 0; transform: translateY(12px) scale(0.96); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
     </style>
 </head>
 <body>
@@ -354,6 +345,25 @@
             </div>
         </div>
     </div>
+    <script>
+        (function () {
+            var overlay = document.getElementById('aas-gate-overlay');
+            var btnYes = document.getElementById('aas-btn-yes');
+            var btnNo = document.getElementById('aas-btn-no');
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+
+            btnYes.addEventListener('click', function () {
+                window.location.href = 'portfoy.html';
+            });
+
+            btnNo.addEventListener('click', function () {
+                overlay.remove();
+                document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
+            });
+        })();
+    </script>
 
     <header class="ege-official-header">
         <div class="header-top container">
@@ -384,8 +394,8 @@
     <section class="slider-section">
         <div class="slider-container">
             <div class="mySlides fade"><img src="resimler/afis1.jpg" alt="Proje Günleri 1"></div>
-            <div class="mySlides fade"><img src="resimler/afis2.jpg" alt="Proje Sergisi 2"></div>
-            <div class="mySlides fade"><img src="resimler/etkinlik_afis.png" alt="Etkinlik Resmi Afişi"></div>
+            <div class="mySlides fade"><img src="resimler/afis2.jpg" alt="Proje Sergisi 2" loading="lazy"></div>
+            <div class="mySlides fade"><img src="resimler/etkinlik_afis.png" alt="Etkinlik Resmi Afişi" loading="lazy"></div>
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
@@ -407,49 +417,49 @@
 
             <div class="workshop-card">
                 <div class="workshop-title">
-                    <img src="resimler/oztas.png" alt="Öztaş Global Soğutma Logo"> Öztaş Global Soğutma
+                    <img src="resimler/oztas.png" alt="Öztaş Global Soğutma Logo" loading="lazy"> Öztaş Global Soğutma
                 </div>
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 28 Nisan 2026</div>
                 <p style="color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Öztaş Global Soğutma uzmanlarıyla gerçekleştirdiğimiz teknik eğitim ve workshop etkinliğimizden kareler.</p>
                 <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery" id="oztasGallery">
-                        <img src="resimler/oztas1.jpg" alt="Öztaş 1" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+1'">
-                        <img src="resimler/oztas2.jpg" alt="Öztaş 2" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+2'">
-                        <img src="resimler/oztas3.jpg" alt="Öztaş 3" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+3'">
-                        <img src="resimler/oztas4.jpg" alt="Öztaş 4" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+4'">
-                        <img src="resimler/oztas5.jpg" alt="Öztaş 5" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+5'">
+                        <img src="resimler/oztas1.jpg" alt="Öztaş 1" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+1'">
+                        <img src="resimler/oztas2.jpg" alt="Öztaş 2" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+2'">
+                        <img src="resimler/oztas3.jpg" alt="Öztaş 3" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+3'">
+                        <img src="resimler/oztas4.jpg" alt="Öztaş 4" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+4'">
+                        <img src="resimler/oztas5.jpg" alt="Öztaş 5" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+5'">
                     </div>
                 </div>
             </div>
 
             <div class="workshop-card">
                 <div class="workshop-title">
-                    <img src="resimler/ozdisan.png" alt="Özdisan Logo" style="height: 40px; margin-right: 15px;"> Özdisan
+                    <img src="resimler/ozdisan.png" alt="Özdisan Logo" loading="lazy" style="height: 40px; margin-right: 15px;"> Özdisan
                 </div>
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 5 Mayıs 2026, Salı</div>
                 <p style="color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Sektörün öncü firmalarından Özdisan ile gerçekleştirilen uygulamalı workshop etkinliğimizden kareler.</p>
                 <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery" id="ozdisanGallery">
-                        <img src="resimler/ozdisan1.jpg" alt="Özdisan 1" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+1'">
-                        <img src="resimler/ozdisan2.jpg" alt="Özdisan 2" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+2'">
-                        <img src="resimler/ozdisan3.jpg" alt="Özdisan 3" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+3'">
-                        <img src="resimler/ozdisan4.jpg" alt="Özdisan 4" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+4'">
-                        <img src="resimler/ozdisan5.jpg" alt="Özdisan 5" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+5'">
+                        <img src="resimler/ozdisan1.jpg" alt="Özdisan 1" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+1'">
+                        <img src="resimler/ozdisan2.jpg" alt="Özdisan 2" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+2'">
+                        <img src="resimler/ozdisan3.jpg" alt="Özdisan 3" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+3'">
+                        <img src="resimler/ozdisan4.jpg" alt="Özdisan 4" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+4'">
+                        <img src="resimler/ozdisan5.jpg" alt="Özdisan 5" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+5'">
                     </div>
                 </div>
             </div>
 
             <div class="workshop-card">
                 <div class="workshop-title">
-                    <img src="resimler/dr_tamirci.png" alt="Dr. Tamirci Logo" style="height: 40px; margin-right: 15px;"> Dr. Tamirci
+                    <img src="resimler/dr_tamirci.png" alt="Dr. Tamirci Logo" loading="lazy" style="height: 40px; margin-right: 15px;"> Dr. Tamirci
                 </div>
                 <div class="workshop-date"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i> 7 Mayıs 2026, Perşembe</div>
                 <p style="color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Dr. Tamirci uzmanlarıyla gerçekleştirdiğimiz teknik eğitim ve donanım workshopumuzdan kareler.</p>
                 <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery" id="tamirciGallery">
-                        <img src="resimler/tamirci1.jpg" alt="Dr. Tamirci 1" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+1'">
-                        <img src="resimler/tamirci2.jpg" alt="Dr. Tamirci 2" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+2'">
-                        <img src="resimler/tamirci3.jpg" alt="Dr. Tamirci 3" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+3'">
+                        <img src="resimler/tamirci1.jpg" alt="Dr. Tamirci 1" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+1'">
+                        <img src="resimler/tamirci2.jpg" alt="Dr. Tamirci 2" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+2'">
+                        <img src="resimler/tamirci3.jpg" alt="Dr. Tamirci 3" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Workshop+3'">
                     </div>
                 </div>
             </div>
@@ -459,9 +469,9 @@
             </div>
             
             <div class="gallery-grid">
-                <img src="resimler/sergi1.jpg" alt="Sergi 1" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300?text=Sergi+Gorsel+1'">
-                <img src="resimler/sergi2.jpg" alt="Sergi 2" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300?text=Sergi+Gorsel+2'">
-                <img src="resimler/sergi3.jpg" alt="Sergi 3" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300?text=Sergi+Gorsel+3'">
+                <img src="resimler/sergi1.jpg" alt="Sergi 1" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300?text=Sergi+Gorsel+1'">
+                <img src="resimler/sergi2.jpg" alt="Sergi 2" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300?text=Sergi+Gorsel+2'">
+                <img src="resimler/sergi3.jpg" alt="Sergi 3" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/400x300?text=Sergi+Gorsel+3'">
             </div>
 
             <div class="drive-buttons-container">
@@ -478,7 +488,7 @@
 
             <div style="text-align: center; margin-top: 20px;">
                 <h4 style="color: #28528f; font-size: 22px; margin-bottom: 20px;"><i class="fab fa-youtube" style="color: #ff0000; margin-right: 10px;"></i>Sergi Turu</h4>
-                <iframe width="100%" height="450" style="max-width: 800px; border-radius: 12px; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" src="https://www.youtube.com/embed/z9Ut74mvWPU" allowfullscreen></iframe>
+                <iframe width="100%" height="450" loading="lazy" style="max-width: 800px; border-radius: 12px; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" src="https://www.youtube.com/embed/z9Ut74mvWPU" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -496,27 +506,6 @@
     <div id="imageLightbox" class="lightbox-modal"><span class="lightbox-close" onclick="closeLightbox()">&times;</span><img class="lightbox-content" id="lightboxImg"></div>
 
     <script>
-        (function () {
-            var overlay = document.getElementById('aas-gate-overlay');
-            var btnYes = document.getElementById('aas-btn-yes');
-            var btnNo = document.getElementById('aas-btn-no');
-
-            if (overlay && btnYes && btnNo) {
-                document.documentElement.style.overflow = 'hidden';
-                document.body.style.overflow = 'hidden';
-
-                btnYes.addEventListener('click', function () {
-                    window.location.href = 'portfoy.html';
-                });
-
-                btnNo.addEventListener('click', function () {
-                    overlay.remove();
-                    document.documentElement.style.overflow = '';
-                    document.body.style.overflow = '';
-                });
-            }
-        })();
-
         let slideIndex = 1; showSlides(slideIndex);
         let autoSlide = setInterval(function() { plusSlides(1); }, 5000);
         function plusSlides(n) { showSlides(slideIndex += n); clearInterval(autoSlide); autoSlide = setInterval(function() { plusSlides(1); }, 5000); }
