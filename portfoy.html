@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avdi Arda Sancaklı | Gömülü Sistemler, Veritabanı &amp; Yazılım Mühendisliği</title>
+  <title>Avdi Arda Sancaklı | Gömülü Sistemler, Veritabanı &amp; Yazılım Portfolyosu</title>
   <meta name="description" content="Avdi Arda Sancaklı — Ege Üniversitesi Elektronik Haberleşme Teknolojileri & Anadolu Üniversitesi Bilgisayar Programcılığı Mezunu. STM32, ARM Cortex-M4, Navicat for MySQL, Görüntü İşleme, Weintek/Nextion HMI ve Tam Yığın Yazılım Portfolyosu.">
   <style>
     :root {
@@ -107,6 +107,34 @@
       color: var(--gold-bright);
     }
 
+    .btn-back-portal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(200, 164, 77, 0.1);
+      color: var(--gold-bright);
+      font-weight: 700;
+      border: 1px solid rgba(200, 164, 77, 0.45);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+    }
+
+    .btn-back-portal:hover {
+      background: rgba(200, 164, 77, 0.2);
+      border-color: var(--gold-bright);
+      color: #FFFFFF;
+    }
+
+    .btn-back-portal:active {
+      transform: scale(0.98);
+    }
+
     .obsidian-card {
       background: linear-gradient(165deg, #111318 0%, #0A0B0E 100%);
       border: 1px solid var(--border-subtle);
@@ -125,7 +153,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(5, 5, 6, 0.9);
+      background: rgba(5, 5, 6, 0.92);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -135,20 +163,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 74px;
-      gap: 16px;
+      min-height: 74px;
+      padding: 10px 0;
+      gap: 14px;
     }
 
     .brand-box {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
     }
 
     .monogram-a {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -158,12 +187,12 @@
       clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
       color: var(--gold-bright);
       font-weight: 800;
-      font-size: 19px;
+      font-size: 18px;
       letter-spacing: 0.02em;
     }
 
     .brand-title {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
       color: var(--text-main);
       letter-spacing: 0.05em;
@@ -173,7 +202,7 @@
     .brand-sub {
       font-size: 10px;
       color: var(--gold-bright);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-top: 2px;
     }
@@ -181,7 +210,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 18px;
     }
 
     .nav-links a {
@@ -189,7 +218,7 @@
       text-decoration: none;
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       transition: color 0.15s ease;
     }
@@ -202,6 +231,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
     }
 
     /* HERO BÖLÜMÜ & 120 FPS OSİLOSKOP */
@@ -927,6 +957,7 @@
       padding: 28px 0;
       font-size: 12px;
       color: var(--text-secondary);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .footer-inner {
@@ -937,18 +968,23 @@
       gap: 14px;
     }
 
+    @media (max-width: 1120px) {
+      .nav-links { display: none; }
+    }
+
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; }
       .matrix-grid { grid-template-columns: repeat(2, 1fr); }
       .inv-grid { grid-template-columns: repeat(2, 1fr); }
       .edu-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
     }
 
     @media (max-width: 640px) {
       .matrix-grid, .inv-grid, .form-row-2, .hero-metrics { grid-template-columns: 1fr; }
       .contact-grid { padding: 22px; }
+      .nav-tech-cta { display: none; }
+      .brand-sub { display: none; }
     }
   </style>
 </head>
@@ -957,7 +993,7 @@
   <!-- ÜST NAVİGASYON -->
   <header class="navbar">
     <div class="container nav-inner">
-      <a href="#top" class="brand-box">
+      <a href="#mimari" class="brand-box">
         <div class="monogram-a">A</div>
         <div>
           <div class="brand-title">AVDİ ARDA SANCAKLI</div>
@@ -966,8 +1002,8 @@
       </a>
 
       <nav class="nav-links mono">
-        <a href="#mimari">Mimari Konsol</a>
-        <a href="#uzmanlik">Teknik Matris</a>
+        <a href="#mimari">Mimari</a>
+        <a href="#uzmanlik">Uzmanlık</a>
         <a href="#envanter">Envanter (13)</a>
         <a href="#kod">Kod &amp; SQL</a>
         <a href="#egitim">Eğitim &amp; Ar-Ge</a>
@@ -975,8 +1011,12 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="index.html" class="btn-outline mono" style="padding: 9px 14px; font-size: 11px;">Ege MYO Portalı</a>
-        <a href="#iletisim" class="btn-gold mono" style="padding: 9px 16px; font-size: 11px;">TEKNİK İLETİŞİM</a>
+        <a href="index.html?portal=1" class="btn-back-portal">
+          &#8592; Ege Proje Sitesine Dön
+        </a>
+        <a href="#iletisim" class="btn-gold mono nav-tech-cta" style="padding: 10px 16px; font-size: 11px;">
+          TEKNİK İLETİŞİM
+        </a>
       </div>
     </div>
   </header>
@@ -994,12 +1034,13 @@
           Donanım Hassasiyeti ve <span>Yüksek Hızlı Veri Mimarisi</span>
         </h1>
         <p class="hero-desc">
-          <strong>STM32 (ARM Cortex-M4)</strong> ve <strong>ESP32</strong> tabanlı gerçek zamanlı gömülü sistemlerden, <strong>Navicat for MySQL</strong> ile optimize edilmiş milisaniyelik analitik grafik &amp; veri işleme yazılımlarına; <strong>görüntü işleme otopark</strong> otomasyonundan <strong>Weintek / Nextion HMI</strong> arayüzlerine kadar uçtan uca mühendislik çözümleri.
+          <strong>STM32 (ARM Cortex-M4)</strong> ve <strong>ESP32</strong> tabanlı gerçek zamanlı gömülü sistemlerden, <strong>Navicat for MySQL</strong> ile optimize edilmiş milisaniyelik analitik grafik &amp; veri işleme yazılımlarına; <strong>görüntü işleme otopark</strong> otomasyonundan <strong>Weintek / Nextion HMI</strong> arayüzlerine kadar uçtan uca teknik çözümler.
         </p>
 
         <div class="hero-cta-row">
           <a href="#envanter" class="btn-gold mono">13 PROJEYİ İNCELE ↓</a>
           <a href="#kod" class="btn-outline mono">KOD &amp; MYSQL MİMARİSİ</a>
+          <a href="index.html?portal=1" class="btn-back-portal" style="padding: 12px 18px;">&#8592; Ege Proje Sitesine Dön</a>
         </div>
 
         <div class="hero-metrics">
@@ -1078,7 +1119,7 @@
   <!-- 4 SÜTUNLU TEKNİK UZMANLIK MATRİSİ -->
   <section id="uzmanlik" class="section-block">
     <div class="container">
-      <div class="sec-kicker mono">// TEKNİK YETKİNLİK &amp; MÜHENDİSLİK MATRİSİ</div>
+      <div class="sec-kicker mono">// TEKNİK YETKİNLİK &amp; DENEYİM MATRİSİ</div>
       <h2 class="sec-title">Donanımdan Veritabanına Tam Yığın Hakimiyet</h2>
       <p class="sec-sub">
         Mikrodenetleyici seviyesinde C/C++ sürücü yazılımından, Navicat for MySQL üzerinde yüksek optimizasyonlu veritabanı &amp; grafik yazılımlarına kadar tüm katmanlar tek mimaride birleştirilir.
@@ -1157,10 +1198,10 @@
     </div>
   </section>
 
-  <!-- UYGULAMALI MÜHENDİSLİK ENVANTERİ (13 PROJE + TAM ÇALIŞAN OK TUŞLARI) -->
+  <!-- UYGULAMALI PROJE ENVANTERİ (13 PROJE + TAM ÇALIŞAN OK TUŞLARI) -->
   <section id="envanter" class="section-block">
     <div class="container">
-      <div class="sec-kicker mono">// UYGULAMALI MÜHENDİSLİK ENVANTERİ (13 PROJE)</div>
+      <div class="sec-kicker mono">// UYGULAMALI PROJE ENVANTERİ (13 PROJE)</div>
       <h2 class="sec-title">Geliştirilen Sistemler, Portallar &amp; Ar-Ge Projeleri</h2>
       <p class="sec-sub">
         Sağ ve sol ok butonlarıyla veya klavye yön tuşlarıyla projeler arasında geçiş yapabilir, herhangi bir karta tıklayarak teknik mimari blok diyagramını inceleyebilirsiniz.
@@ -1216,7 +1257,7 @@
   <section id="egitim" class="section-block">
     <div class="container">
       <div class="sec-kicker mono">// AKADEMİK MEZUNİYETLER &amp; ENDÜSTRİYEL AR-GE</div>
-      <h2 class="sec-title">Eğitim ve Mühendislik Deneyimi</h2>
+      <h2 class="sec-title">Eğitim ve Saha Deneyimi</h2>
       <p class="sec-sub">
         Donanım haberleşme altyapısı ile bilgisayar programcılığı yazılım disiplinini birleştiren akademik ve endüstriyel geçmiş.
       </p>
@@ -1298,7 +1339,7 @@
       <div class="obsidian-card contact-grid">
         <div>
           <div class="sec-kicker mono">// DOĞRUDAN İLETİŞİM &amp; PORTAL ERİŞİMİ</div>
-          <h2 class="sec-title" style="font-size: 28px;">Mühendislik &amp; Yazılım İş Birliği</h2>
+          <h2 class="sec-title" style="font-size: 28px;">Proje &amp; Yazılım İş Birliği</h2>
           <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">
             İzmir merkezli Ar-Ge, <strong style="color: #FFFFFF;">Navicat for MySQL</strong> veritabanı &amp; hızlı grafik yazılımları, gömülü sistem prototipleme, Weintek/Nextion HMI tasarımı, görüntü işleme otopark sistemleri veya özel yazılım geliştirme için doğrudan mesaj gönderebilirsiniz.
           </p>
@@ -1314,9 +1355,9 @@
               <span style="color: #DFC06E;">Ziyaret Et ↗</span>
             </a>
 
-            <a href="https://mbselek.com.tr" target="_blank" rel="noopener noreferrer" class="contact-link-box">
-              <span>mbselek.com.tr — Ege Üni. Bitirme Projeleri</span>
-              <span style="color: #DFC06E;">Ziyaret Et ↗</span>
+            <a href="index.html?portal=1" class="contact-link-box">
+              <span>mbselek.com.tr — Ege Proje Sitesine Dön</span>
+              <span style="color: #DFC06E;">← Dönüş Yap</span>
             </a>
           </div>
         </div>
@@ -1367,8 +1408,11 @@
         <div class="monogram-a" style="width: 30px; height: 30px; font-size: 14px;">A</div>
         <span><strong style="color: #F3F4F6;">Avdi Arda Sancaklı</strong> © 2026 — Ege Üni. Elektronik Haberleşme Teknolojileri &amp; Anadolu Üni. Bilgisayar Programcılığı Mezunu</span>
       </div>
-      <div class="mono" style="font-size: 11px; color: #DFC06E;">
-        İZMİR, TÜRKİYE • 120 FPS ZERO-WOBBLE ARCHITECTURE
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="index.html?portal=1" class="btn-back-portal" style="padding: 8px 14px; font-size: 11px;">
+          &#8592; Ege Proje Sitesine Dön
+        </a>
+        <span class="mono" style="font-size: 11px; color: #DFC06E;">İZMİR, TÜRKİYE</span>
       </div>
     </div>
   </footer>
@@ -1519,7 +1563,7 @@
         });
       }
 
-      /* 3. 13 PROJELİK MÜHENDİSLİK ENVANTERİ & OK TUŞLARI */
+      /* 3. 13 PROJELİK ENVANTER & OK TUŞLARI */
       var projects = [
         {
           id: 'PRJ-01', cat: 'db-web', catLabel: 'Veritabanı & Web',
