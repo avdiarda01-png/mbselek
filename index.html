@@ -233,9 +233,127 @@
             transform: translateY(-3px);
             background-color: #f1f2f6;
         }
+
+        /* GİRİŞ YÖNLENDİRME AÇILIR KUTUSU */
+        #aas-gate-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483647;
+            background: rgba(5, 5, 6, 0.84);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            animation: aasFadeIn 0.25s ease-out forwards;
+        }
+        #aas-gate-overlay * {
+            box-sizing: border-box;
+        }
+        .aas-gate-card {
+            width: 100%;
+            max-width: 440px;
+            background: linear-gradient(165deg, #121419 0%, #090A0C 100%);
+            border: 1px solid rgba(200, 164, 77, 0.45);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(200, 164, 77, 0.12);
+            animation: aasCardPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .aas-gate-badge {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 18px;
+            border-radius: 12px;
+            background: rgba(200, 164, 77, 0.1);
+            border: 1px solid rgba(200, 164, 77, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #DFC06E;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+        .aas-gate-title {
+            margin: 0 0 10px;
+            color: #F4F5F7;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .aas-gate-desc {
+            margin: 0 0 26px;
+            color: #9CA3AF;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .aas-gate-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .aas-gate-btn {
+            appearance: none;
+            border-radius: 10px;
+            padding: 13px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+        }
+        .aas-gate-btn:active {
+            transform: scale(0.98);
+        }
+        .aas-gate-btn-yes {
+            background: linear-gradient(135deg, #DFC06E 0%, #B8923A 100%);
+            color: #08080A;
+            border: 1px solid #E6CA7E;
+            box-shadow: 0 6px 20px rgba(200, 164, 77, 0.25);
+        }
+        .aas-gate-btn-yes:hover {
+            background: linear-gradient(135deg, #E8CC7E 0%, #C8A44D 100%);
+        }
+        .aas-gate-btn-no {
+            background: rgba(255, 255, 255, 0.04);
+            color: #D1D5DB;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+        .aas-gate-btn-no:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+        }
+        @keyframes aasFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes aasCardPop {
+            from { opacity: 0; transform: translateY(12px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
     </style>
 </head>
 <body>
+
+    <div id="aas-gate-overlay" role="dialog" aria-modal="true" aria-labelledby="aas-gate-heading">
+        <div class="aas-gate-card">
+            <div class="aas-gate-badge">A</div>
+            <h2 id="aas-gate-heading" class="aas-gate-title">Proje sitesiyle devam et</h2>
+            <p class="aas-gate-desc">
+                Avdi Arda Sancaklı mühendislik &amp; yazılım portfolyosuna geçmek için <strong>EVET</strong>, Ege MYO Elektronik Haberleşme Teknolojisi portalında kalmak için <strong>HAYIR</strong> seçin.
+            </p>
+            <div class="aas-gate-actions">
+                <button type="button" id="aas-btn-yes" class="aas-gate-btn aas-gate-btn-yes">EVET</button>
+                <button type="button" id="aas-btn-no" class="aas-gate-btn aas-gate-btn-no">HAYIR</button>
+            </div>
+        </div>
+    </div>
 
     <header class="ege-official-header">
         <div class="header-top container">
@@ -378,6 +496,27 @@
     <div id="imageLightbox" class="lightbox-modal"><span class="lightbox-close" onclick="closeLightbox()">&times;</span><img class="lightbox-content" id="lightboxImg"></div>
 
     <script>
+        (function () {
+            var overlay = document.getElementById('aas-gate-overlay');
+            var btnYes = document.getElementById('aas-btn-yes');
+            var btnNo = document.getElementById('aas-btn-no');
+
+            if (overlay && btnYes && btnNo) {
+                document.documentElement.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+
+                btnYes.addEventListener('click', function () {
+                    window.location.href = 'portfoy.html';
+                });
+
+                btnNo.addEventListener('click', function () {
+                    overlay.remove();
+                    document.documentElement.style.overflow = '';
+                    document.body.style.overflow = '';
+                });
+            }
+        })();
+
         let slideIndex = 1; showSlides(slideIndex);
         let autoSlide = setInterval(function() { plusSlides(1); }, 5000);
         function plusSlides(n) { showSlides(slideIndex += n); clearInterval(autoSlide); autoSlide = setInterval(function() { plusSlides(1); }, 5000); }
